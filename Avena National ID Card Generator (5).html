@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Avena National ID Card Generator</title>
+<link href="https://fonts.googleapis.com/css2?family=Allura&family=Barlow+Semi+Condensed:wght@400;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+<style>
+:root{--bg:#e9ecef;--pn:#fff;--ink:#121820;--mu:#5d6876;--ln:#d3d8de;--in:#f5f7f9;--rd:#c8202f;--gn:#138a4b;--bl:#1747a6;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0c1118;--pn:#151c26;--ink:#e8edf2;--mu:#93a0b0;--ln:#2a3441;--in:#0e141c}}
+:root[data-theme=dark]{--bg:#0c1118;--pn:#151c26;--ink:#e8edf2;--mu:#93a0b0;--ln:#2a3441;--in:#0e141c}
+html{scroll-padding-top:env(safe-area-inset-top,0px);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.4 'Barlow Semi Condensed',system-ui,Arial,sans-serif}
+button,input,select,textarea{font:inherit;color:inherit}
+header{background:#0d1b2e;color:#fff;position:relative}
+header::after{content:'';position:absolute;left:0;right:0;bottom:0;height:4px;background:linear-gradient(90deg,var(--rd) 33%,var(--gn) 0 66%,var(--bl) 0)}
+.hw{max-width:1500px;margin:auto;padding:14px 24px 18px;display:flex;align-items:center;gap:16px}
+.hw svg{width:62px;height:41px;border-radius:3px}
+.hw h1{margin:0;font-size:22px;letter-spacing:4px;white-space:nowrap}.hw .btn,.tag{white-space:nowrap}.hw{flex-wrap:wrap}.hw p{margin:0;font-size:13px;letter-spacing:2px;opacity:.75;text-transform:uppercase}
+.sp{flex:1}
+.btn{border:1px solid var(--ln);background:var(--pn);padding:8px 14px;border-radius:7px;cursor:pointer;font-weight:600;letter-spacing:.5px}
+.btn:hover{border-color:var(--bl)}.btn.pr{background:var(--bl);border-color:var(--bl);color:#fff}.btn.gr{background:var(--gn);border-color:var(--gn);color:#fff}.btn.dg{color:var(--rd)}.btn.sm{padding:4px 9px;font-size:13px}
+header .btn{background:#ffffff14;color:#fff;border-color:#ffffff40}
+main{max-width:1500px;margin:auto;padding:22px 24px;display:grid;grid-template-columns:minmax(0,1fr);gap:22px}#top{display:grid;grid-template-columns:minmax(380px,520px) minmax(0,1fr);gap:22px;align-items:start}main>*,.pv>*{min-width:0}
+.pnl{background:var(--pn);border:1px solid var(--ln);border-radius:12px;padding:18px;box-shadow:0 1px 2px #0001}
+.pnl h2{margin:0 0 12px;font-size:14px;letter-spacing:3px;text-transform:uppercase;color:var(--mu)}
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:12px}.fg .w{grid-column:1/-1}
+.lab{display:flex;justify-content:space-between;font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--mu);margin-bottom:3px}
+.sh{font-weight:400;letter-spacing:0;text-transform:none;cursor:pointer;white-space:nowrap}
+input[type=text],input[type=date],select,textarea{width:100%;background:var(--in);border:1px solid var(--ln);border-radius:7px;padding:8px 10px}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--bl);outline-offset:-1px}
+.er{color:var(--rd);font-size:13px;margin-top:2px;min-height:0}.wn{color:#b36b00;font-size:13px}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.idr{display:flex;gap:6px}.idr input{font-family:'IBM Plex Mono',monospace;letter-spacing:1px}
+.ph{display:flex;gap:14px;align-items:center;margin-bottom:14px}
+#thumb{width:84px;height:108px;border:1px dashed var(--mu);border-radius:6px;background:var(--in) center/cover;display:grid;place-items:center;color:var(--mu);font-size:12px;text-align:center}
+#banner{display:none;background:#c8202f18;border:1px solid var(--rd);color:var(--rd);padding:8px 12px;border-radius:7px;margin-bottom:12px}
+.pv{position:sticky;top:12px;align-self:start;display:grid;gap:14px}#fm{grid-column:1;grid-row:1}#prn{grid-column:1;grid-row:2}.pv{grid-column:2;grid-row:1/span 2}
+.tb{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.seg{display:flex}.seg button{border-radius:0;margin-left:-1px}.seg button:first-child{border-radius:7px 0 0 7px}.seg button:last-child{border-radius:0 7px 7px 0}.seg .on{background:#0d1b2e;color:#fff;border-color:#0d1b2e}
+#bench{background:radial-gradient(circle at 50% 30%,var(--pn),var(--bg));border:1px solid var(--ln);border-radius:12px;padding:20px;overflow:hidden}
+#stage{position:relative;margin:auto;perspective:2000px;transition:height .6s}
+.face{position:absolute;left:0;top:0;transition:transform .7s cubic-bezier(.3,.7,.2,1);-webkit-backface-visibility:hidden;backface-visibility:hidden}
+.face .card{box-shadow:0 18px 40px #0005,0 2px 6px #0004,inset 0 0 0 1px #fff8}
+.sc{width:856px;height:540px;transform-origin:0 0}
+table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--ln);white-space:nowrap}
+th{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--mu)}
+.mono{font-family:'IBM Plex Mono',monospace;font-size:13px}
+.tag{padding:2px 9px;border-radius:99px;font-size:12px;font-weight:700;letter-spacing:1px;color:#fff;background:var(--gn)}.tag.x{background:var(--rd)}
+.tw{overflow-x:auto}.cl{grid-column:1/-1}
+#toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,30px);background:#0d1b2e;color:#fff;padding:10px 18px;border-radius:8px;opacity:0;transition:.3s;pointer-events:none;z-index:9}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+#sheet{display:none}
+@media(max-width:1100px){#top{grid-template-columns:minmax(0,1fr)}.pv{position:static;order:-1}#fm,#prn,.pv{grid-column:1;grid-row:auto}.hw p{display:none}}
+#rec{position:fixed;inset:0;background:#000a;display:grid;place-items:center;z-index:40;padding:16px}#rec[hidden]{display:none}
+#recb{background:var(--pn);border-radius:12px;max-width:780px;width:100%;max-height:90vh;overflow:auto;padding:22px;border-top:5px solid var(--bl)}
+.rh{display:flex;gap:18px;align-items:center;margin-bottom:16px}.rh img,.np{width:96px;height:123px;object-fit:cover;border-radius:6px;background:var(--in);display:grid;place-items:center;color:var(--mu);font-size:12px}
+.rh h2{margin:0 0 4px;font-size:28px;letter-spacing:1px;text-transform:uppercase;color:var(--ink)}
+.rg{display:grid;grid-template-columns:1fr 1fr;gap:12px 20px}.rr i{display:block;font:normal 600 12px 'Barlow Semi Condensed',sans-serif;letter-spacing:2px;text-transform:uppercase;color:var(--mu)}.rr b{font-weight:600;font-size:17px;overflow-wrap:anywhere}.rr.w{grid-column:1/-1}.rr.bad b{color:var(--rd)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}.st{background:var(--in);border:1px solid var(--ln);border-radius:10px;padding:12px;color:var(--mu);font-size:13px;letter-spacing:1px}.st b{display:block;font-size:32px;color:var(--ink);line-height:1.1}
+.tl{font-size:13px;letter-spacing:4px;opacity:.85}
+#ck{position:fixed;inset:0;z-index:30;background:#070b11;color:#fff;overflow:auto;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}#ck[hidden]{display:none}
+#ck .btn{background:#1b2634;color:#fff;border-color:#344256}
+.ckh{display:flex;align-items:center;gap:12px;padding:12px 16px;background:#0d1b2e;position:relative}.ckh svg{width:52px;height:34px;border-radius:3px}.ckh b{letter-spacing:4px;font-size:20px;display:block}.ckh small{opacity:.7;letter-spacing:2px;text-transform:uppercase;font-size:11px}
+.ckh::after{content:'';position:absolute;left:0;right:0;bottom:0;height:4px;background:linear-gradient(90deg,#c8202f 33%,#138a4b 0 66%,#1747a6 0)}
+.ckb{display:grid;gap:14px;padding:14px;max-width:1100px;margin:auto;align-items:start}@media(min-width:860px){.ckb{grid-template-columns:1fr 1fr}}
+.ckv{position:relative;border-radius:14px;overflow:hidden;background:#000;aspect-ratio:4/3;max-height:44vh;width:100%}.ckv video{width:100%;height:100%;object-fit:cover}
+.rt{position:absolute;inset:16% 14%;border:2px solid #fff6;border-radius:12px}.rt::after{content:'';position:absolute;left:0;right:0;height:2px;background:#3ddc84;box-shadow:0 0 12px #3ddc84;animation:sw 2s ease-in-out infinite alternate}@keyframes sw{from{top:4%}to{top:94%}}
+#ckmsg{position:absolute;left:0;right:0;bottom:0;padding:8px 12px;background:#000b;font-size:14px;text-align:center}
+.ckm{display:flex;gap:8px;margin-top:12px}.ckm input{flex:1;min-width:0;background:#121b27;border:1px solid #2a3441;color:#fff;font:600 18px 'IBM Plex Mono',monospace;padding:12px;border-radius:8px}
+.vd{padding:16px;border-radius:12px 12px 0 0;font:700 40px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:6px;text-align:center}.vd.ok{background:#138a4b}.vd.wn{background:#d98a00}.vd.bad{background:#c8202f}.vd.nf{background:#5b6573}
+.ckc{display:flex;gap:16px;padding:16px;background:#121b27;border-radius:0 0 12px 12px}.ckc img,.ckc .np{width:104px;height:134px;object-fit:cover;border-radius:6px;background:#0e141c;display:grid;place-items:center;color:#93a0b0;flex:none}.ckc h2{margin:0 0 2px;font-size:26px;text-transform:uppercase;letter-spacing:1px}
+.kv{margin-top:6px;font-size:16px}.kv i{display:block;font:normal 600 11px 'Barlow Semi Condensed',sans-serif;letter-spacing:2px;text-transform:uppercase;color:#93a0b0}#ckl{margin-top:14px;font-size:14px;opacity:.85}
+/* ---------- CARD (856x540 design px = 85.6x54mm @10px/mm) ---------- */
+.card{position:relative;width:856px;height:540px;border-radius:32px;overflow:hidden;color:#14202e;font-family:'Barlow Semi Condensed','Arial Narrow',Arial,sans-serif;background:linear-gradient(135deg,#fbfaf5,#e9efe9 55%,#e1e8f3);text-align:left}
+.card>*{position:absolute}
+.pat{inset:0;background:repeating-radial-gradient(circle at 80% 58%,#1747a610 0 1px,transparent 1px 9px),repeating-radial-gradient(circle at 12% 90%,#138a4b0e 0 1px,transparent 1px 11px),repeating-linear-gradient(45deg,#00000007 0 1px,transparent 1px 6px),repeating-linear-gradient(-45deg,#00000007 0 1px,transparent 1px 6px)}
+.wm{right:50px;top:150px;width:340px;height:340px;opacity:.06;color:#0d1b2e}
+.hd{left:36px;top:22px;right:36px;height:72px;display:flex;align-items:center;gap:20px}
+.flg{width:96px;height:64px;border-radius:4px;box-shadow:0 0 0 1px #0004,0 3px 6px #0003}
+.br h1{margin:0;font:700 54px/1 'Barlow Semi Condensed',sans-serif;letter-spacing:11px}
+.br p{margin:3px 0 0;font-size:13px;letter-spacing:2.6px;color:#4a5868}
+.holo{position:absolute;right:0;top:2px;width:68px;height:68px;border-radius:50%;background:radial-gradient(circle at 30% 25%,#fff9,transparent 45%),conic-gradient(from 30deg,#ff9ac1,#ffe29a,#9affd0,#9ac8ff,#d49aff,#ff9ac1);box-shadow:inset 0 0 0 2px #fff9,0 1px 4px #0004;display:grid;place-items:center;color:#0d1b2e99}
+.holo svg{width:40px;height:40px}
+.ban{left:0;right:0;top:108px;height:36px;background:linear-gradient(90deg,var(--a1,#0d1b2e),var(--a2,#17335a));color:#fff;text-align:center;font:600 18px/36px 'Barlow Semi Condensed',sans-serif;letter-spacing:8px}
+.ban::after{content:'';position:absolute;left:0;right:0;bottom:-5px;height:5px;background:linear-gradient(90deg,#c8202f 33.3%,#138a4b 0 66.6%,#1747a6 0)}
+.pho{left:36px;top:172px;width:210px;height:270px;border:4px solid #fff;box-shadow:0 0 0 1.5px #0d1b2e,0 6px 14px #0004;background:#dfe5ea;overflow:hidden}
+.pho img{width:100%;height:100%;object-fit:cover;display:block}.pho svg{width:100%;height:100%;fill:#b4bec9}
+.inf{left:276px;top:166px;right:36px}
+.nm{font:700 40px/1.05 'Barlow Semi Condensed',sans-serif;text-transform:uppercase;letter-spacing:1px}
+.pf{font-size:19px;font-style:italic;color:#4a5868;margin:2px 0 4px}
+.idn{font:600 28px 'IBM Plex Mono',monospace;color:#1747a6;letter-spacing:2px;margin:4px 0 10px}
+.gr{display:grid;grid-template-columns:1fr 1fr;gap:8px 20px}.gr .s2{grid-column:1/-1}
+.f i{display:block;font:normal 600 12px 'Barlow Semi Condensed',sans-serif;letter-spacing:2.2px;color:#6a7787;text-transform:uppercase}
+.f b{display:block;font-size:21px;font-weight:600;line-height:1.15}
+.ft{left:0;right:0;bottom:0;height:52px;background:var(--a1,#0d1b2e);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 36px;font-size:19px;letter-spacing:6px}
+.ft .mono{letter-spacing:2px;font-size:15px;opacity:.85}
+.pill{font-size:14px;letter-spacing:3px;padding:3px 14px;border-radius:99px;background:#138a4b}.pill.x{background:#c8202f}
+.mt{left:36px;right:36px;bottom:56px;font-size:6px;letter-spacing:2px;color:#7b8794;white-space:nowrap;overflow:hidden}
+.bhd{left:0;right:0;top:0;height:76px;background:var(--a1,#0d1b2e);color:#fff;display:flex;align-items:center;gap:18px;padding:0 36px;letter-spacing:4px;font-size:20px;font-weight:600}
+.bhd svg{width:66px;height:44px;border-radius:3px}.bhd .fx{width:44px;height:44px;margin-left:auto;color:#fff}
+.bhd::after{content:'';position:absolute;left:0;right:0;bottom:-5px;height:5px;background:linear-gradient(90deg,#c8202f 33.3%,#138a4b 0 66.6%,#1747a6 0)}
+.bin{left:36px;top:104px;width:500px}
+.bin .gr{grid-template-columns:1fr 1fr}.cn{font-size:18px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical}
+.sg{left:36px;top:306px;width:420px;height:70px;border-bottom:2px solid #14202e}
+.sg span{position:absolute;left:8px;bottom:2px;font:46px/1 'Allura',cursive;color:#0f2a5c}
+.sgl{left:36px;top:380px;font-size:11px;letter-spacing:2.4px;color:#6a7787}
+.qr{right:36px;top:100px;width:200px;height:200px;background:#fff;padding:10px;border-radius:8px;box-shadow:0 0 0 1px #0003}
+.qr svg{width:100%;height:100%;display:block}
+.qc{right:36px;top:306px;width:200px;text-align:center;font-size:11px;letter-spacing:3px;color:#6a7787}
+.bc{left:36px;top:410px;width:520px;height:46px}.bct{left:36px;top:458px;font:500 12px 'IBM Plex Mono',monospace;letter-spacing:5px;color:#334}
+.emb{right:36px;top:352px;width:200px;text-align:center;color:#0d1b2e}.emb svg{width:58px;height:58px}.emb div{font-size:14px;letter-spacing:5px;font-weight:700}
+.bf{left:0;right:0;bottom:0;height:64px;background:var(--a1,#0d1b2e);color:#fff;text-align:center;padding-top:10px}
+.bf b{display:block;font-size:17px;letter-spacing:4px}.bf small{font-size:10px;letter-spacing:1.2px;opacity:.7}
+/* ---------- PRINT ---------- */
+@media print{
+@page{margin:10mm}
+body>*:not(#sheet){display:none!important}
+body{background:#fff}
+#sheet{display:block!important}
+.pg{display:grid;grid-template-columns:repeat(2,85.6mm);gap:6mm;justify-content:center;page-break-after:always;break-after:page}
+.pg.one{grid-template-columns:85.6mm}.pg:last-child{page-break-after:auto;break-after:auto}
+.pc{width:85.6mm;height:54mm;overflow:hidden;border-radius:3.2mm;break-inside:avoid;outline:.1mm solid #ccc}
+.pc .sc{transform:scale(.37795);transform-origin:0 0}
+}
+</style></head><body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="flag" viewBox="0 0 96 64"><rect width="96" height="21.4" fill="#c8202f"/><rect y="21.3" width="96" height="21.5" fill="#138a4b"/><rect y="42.7" width="96" height="21.3" fill="#1747a6"/><rect x="74.6" width="21.4" height="21.4" fill="#fff"/><polygon fill="#000" points="85.3,2.7 87.2,8.1 92.9,8.2 88.3,11.7 90,17.2 85.3,13.9 80.6,17.2 82.3,11.7 77.7,8.2 83.4,8.1"/></symbol>
+<symbol id="fox" viewBox="0 0 64 64"><path fill="currentColor" d="M5 5 26 20h12L59 5l-2 29L32 61 7 34Z"/><path fill="#fff" opacity=".92" d="M19 36l13 9 13-9-13 24ZM18 31l9 4-5 4ZM46 31l-9 4 5 4Z"/><path fill="#000" d="M29 55h6l-3 5Z"/></symbol></defs></svg>
+<header><div class="hw"><svg><use href="#flag"/></svg><div><h1>GOVERNMENT OF AVENA</h1><p>National Identification Office · National ID Card Generator</p></div><span class="sp"></span><span class="tag" id="dbs" style="background:#5b6573">Local only</span><button class="btn" id="ckopen">⌖ Checkpoint Mode</button><a href="#scan" class="btn" style="text-decoration:none">Scan</a><a href="#cit" class="btn" style="text-decoration:none">Citizens <span id="cnt">0</span></a><button class="btn" id="theme">◐ Theme</button></div></header>
+<main>
+<div id="top">
+<section class="pnl" id="fm"><h2>Citizen Information</h2><div id="banner"></div>
+<div class="ph"><div id="thumb">No photo</div><div><div class="row"><label class="btn sm" style="cursor:pointer">Upload photo<input type="file" id="photo" accept="image/*" hidden></label><button class="btn sm dg" id="rmph">Remove</button></div><div class="lab" style="margin-top:6px;font-weight:400;letter-spacing:0;text-transform:none">Portrait recommended, cropped to ID-photo ratio automatically.</div></div></div>
+<div class="fg" id="form"></div><h2 style="margin:20px 0 12px">Confidential Record &amp; Card Status</h2><div class="fg" id="rform"></div>
+<label class="sh row" style="margin:12px 0"><input type="checkbox" id="auto" checked> Auto-set expiry to 10 years after issue date</label>
+<div class="row"><button class="btn pr" id="save">Save Citizen</button><button class="btn gr" id="gen">Generate ID Code</button><button class="btn" id="new">New Citizen</button><button class="btn dg" id="clr">Clear Form</button></div></section>
+<section class="pv"><div class="pnl"><div class="tb"><div class="seg" id="seg"><button class="btn on" data-v="front">FRONT</button><button class="btn" data-v="back">BACK</button><button class="btn" data-v="both">BOTH</button></div><span class="sp"></span><label class="sh">Zoom <input type="range" id="zm" min=".3" max="1.2" step=".05" style="vertical-align:middle;width:110px"></label><button class="btn sm" id="fit">Fit</button></div>
+<div id="bench" style="margin-top:12px"><div id="stage"><div class="face" id="ff"><div class="sc"></div></div><div class="face" id="fb"><div class="sc"></div></div></div></div></div>
+</section>
+<section class="pnl" id="prn"><h2>Print</h2><div class="fg"><div><div class="lab">Source</div><select id="psrc"><option value="cur">Current card in editor</option><option value="all">All saved citizens</option><option value="sel">Selected citizens (tick in table)</option></select></div><div><div class="lab">Sides</div><select id="psd"><option value="fb">Front &amp; back</option><option value="f">Front only</option><option value="b">Back only</option></select></div><div><div class="lab">Cards per page</div><select id="ppp"><option value="1">1 (actual size)</option><option value="2">2</option><option value="4">4</option><option value="8">8</option><option value="10" selected>10</option></select></div><div style="align-self:end"><button class="btn pr" id="print" style="width:100%">🖨 Print ID Card</button></div></div><p class="lab" style="margin:10px 0 0;font-weight:400;letter-spacing:0;text-transform:none">Cards print at true 85.6 × 54 mm. Choose “Save as PDF” in the print dialog to export a PDF.</p></section>
+</div>
+<section class="pnl cl" id="mig" hidden><div class="tb"><span id="migt"></span><span class="sp"></span><button class="btn pr" id="migb">Upload to shared database</button></div></section>
+<section class="pnl cl" id="dash"><h2>Overview</h2><div class="stats" id="stats"></div><div id="soon"></div></section>
+<section class="pnl cl" id="scan"><h2>Scan Barcode / QR Code</h2><div class="fg"><div><div class="row"><button class="btn pr" id="cam">Start camera</button><label class="btn" style="cursor:pointer">Scan from image<input type="file" id="img" accept="image/*" hidden></label></div><video id="vid" hidden muted playsinline style="width:100%;max-width:420px;margin-top:10px;border-radius:8px;background:#000"></video></div><div><div class="lab">Or type / use a handheld scanner</div><div class="idr"><input type="text" id="lkv" placeholder="Click here, then scan or type an ID"><button class="btn pr" id="lk">Look up</button></div><div id="sres" class="er"></div></div></div><p class="lab" style="margin:10px 0 0;font-weight:400;letter-spacing:0;text-transform:none">A scan opens the full record of citizens saved in the shared database. Codes carry only the ID, never the confidential record.</p></section>
+<section class="pnl cl" id="cit"><h2>Citizens</h2><div class="tb" style="margin-bottom:10px"><input type="text" id="q" placeholder="Search name, ID or position…" style="max-width:320px"><select id="so" style="max-width:220px"><option value="name">Sort: Name A–Z</option><option value="issue">Sort: Newest issued</option><option value="expiry">Sort: Expiry soonest</option><option value="id">Sort: ID code</option></select></div>
+<div class="tw"><table><thead><tr><th><input type="checkbox" id="selall" title="Select all"></th><th>Name</th><th>ID Code</th><th>Position</th><th>Citizenship</th><th>Issued</th><th>Status</th><th></th></tr></thead><tbody id="tb"></tbody></table></div></section>
+<section class="pnl cl" id="log"><div class="tb" style="margin-bottom:10px"><h2 style="margin:0">Scan Log</h2><span class="sp"></span><button class="btn sm dg" id="clog">Clear log</button></div><div class="tw"><table><thead><tr><th>Time</th><th>ID scanned</th><th>Citizen</th><th>Result</th></tr></thead><tbody id="lg"></tbody></table></div></section>
+</main>
+<div id="ck" hidden><div class="ckh"><svg><use href="#flag"/></svg><div><b>AVENA CHECKPOINT</b><small>National Identification Office · ID Verification</small></div><span class="sp"></span><button class="btn" id="ckx">Exit</button></div>
+<div class="ckb"><div><div class="ckv"><video id="ckv" muted playsinline></video><div class="rt"></div><div id="ckmsg">Starting camera…</div></div><div class="ckm"><input id="ckin" placeholder="Type or scan an ID" autocomplete="off"><button class="btn" id="ckgo">Check</button><button class="btn" id="ckcam">Camera</button></div></div>
+<div><div id="ckr"><div class="vd nf" style="border-radius:12px;opacity:.6">READY TO SCAN</div></div><div id="ckl"></div></div></div></div>
+<div id="rec" hidden><div id="recb"></div></div><div id="sheet"></div><div id="toast"></div>
+<script src="https://cdn.jsdelivr.net/npm/@zxing/library@0.21.3/umd/index.min.js"></script>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const MON=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+const fmt=d=>{const m=/^(\d{4})-(\d\d)-(\d\d)$/.exec(d||'');return m?`${m[3]} ${MON[+m[2]-1]} ${m[1]}`:''};
+const today=()=>{const d=new Date();return new Date(d-d.getTimezoneOffset()*6e4).toISOString().slice(0,10)};
+const okDate=d=>{const m=/^(\d{4})-(\d\d)-(\d\d)$/.exec(d||'');if(!m)return false;const t=new Date(d+'T00:00:00Z');return !isNaN(t)&&t.toISOString().slice(0,10)===d};
+const addY=(d,n)=>{const[y,m,dd]=d.split('-');return new Date(Date.UTC(+y+n,+m-1,+dd)).toISOString().slice(0,10)};
+const status=c=>c.cs&&c.cs!=='Active'?c.cs:okDate(c.expiry)&&c.expiry<today()?'Expired':'Active';
+// field config: key,label,type,side(f/b),options
+const F=[['name','Full Name','text','f'],['pref','Preferred Name','text','f'],['id','Citizen ID / ID Code','id','f'],['dob','Date of Birth','date','f'],['issue','Date of Issue','date','f'],['expiry','Date of Expiry','date','f'],
+['cit','Citizenship Status','select','f',['Citizen','Naturalized Citizen','Permanent Resident','Diplomatic Status']],['role','Position / Government Role','text','f'],['prov','Province / Territory','text','b'],['res','Place of Residence','text','b'],
+['blood','Blood Type (optional)','select','b',['','O+','O−','A+','A−','B+','B−','AB+','AB−']],['nat','Nationality','text','b'],['sig','Signature (typed)','text','b'],['notes','Additional Notes','textarea','b']];
+const WIDE=['name','id','res','notes','role'];
+const blank=()=>({uid:'',name:'',pref:'',id:'',dob:'',issue:today(),expiry:addY(today(),10),cit:'Citizen',role:'',prov:'',res:'',blood:'',nat:'Avenan',sig:'',notes:'',gender:'',clr:'Level 1',mil:'',awards:'',crimes:'None',act:'Active',cs:'Active',email:'',phone:'',other:'',photo:'',show:Object.fromEntries(F.map(f=>[f[0],f[0]!=='notes']))});
+let cur=blank(),db=[],view='front',zoom=1,fit=true,pend=null;
+try{db=JSON.parse(localStorage.getItem('avena.citizens')||'[]')}catch(e){}
+const persist=()=>{try{localStorage.setItem('avena.citizens',JSON.stringify(db))}catch(e){toast('Browser storage unavailable — data will not persist')}};
+function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('on'),2800)}
+// ---------- form ----------
+$('#form').innerHTML=F.map(([k,l,t,s,o])=>{
+ const inp=t==='select'?`<select data-k="${k}">${o.map(x=>`<option>${x}</option>`).join('')}</select>`:t==='textarea'?`<textarea data-k="${k}" rows="2"></textarea>`:t==='id'?`<div class="idr"><input type="text" data-k="${k}" placeholder="e.g. 1112" autocomplete="off"></div>`:`<input type="${t}" data-k="${k}" ${k==='sig'?'placeholder="Type name to sign"':''}>`;
+ const sh=k==='name'||k==='id'?'':`<label class="sh"><input type="checkbox" data-sh="${k}"> show</label>`;
+ return `<div class="${WIDE.includes(k)||t==='textarea'?'w':''}"><div class="lab"><span>${l}</span>${sh}</div>${inp}<div class="er" data-e="${k}"></div></div>`}).join('');
+const R=[['gender','Gender','select',['','Male','Female','Other']],['clr','Clearance Level','select',[1,2,3,4,5,6,7,8,9,10].map(n=>'Level '+n)],['mil','Military Branch / Rank','text'],['awards','Awards','text'],['crimes','Criminal History','textarea'],['act','Activity Status','select',['Active','Semi-active','Inactive']],['cs','Card Status','select',['Active','Suspended','Revoked','Lost / Replaced']],['email','Email','text'],['phone','Phone Number','text'],['other','Other Records (one per line, as Label: value)','textarea']];
+$('#rform').innerHTML=R.map(([k,l,t,o])=>`<div class="${t==='textarea'?'w':''}"><div class="lab"><span>${l}</span></div>${t==='select'?`<select data-k="${k}">${o.map(x=>`<option>${x}</option>`).join('')}</select>`:t==='textarea'?`<textarea data-k="${k}" rows="2"></textarea>`:`<input type="text" data-k="${k}">`}</div>`).join('');
+function fill(){$$('[data-k]').forEach(e=>e.value=cur[e.dataset.k]??'');$$('[data-sh]').forEach(e=>e.checked=!!cur.show[e.dataset.sh]);thumb();$('#banner').style.display='none';$$('.er').forEach(e=>e.textContent='')}
+function thumb(){const t=$('#thumb');t.style.backgroundImage=cur.photo?`url(${cur.photo})`:'';t.textContent=cur.photo?'':'No photo'}
+$('#form').parentElement.addEventListener('input',e=>{const k=e.target.dataset.k,s=e.target.dataset.sh;
+ if(k){cur[k]=e.target.value;if(k==='issue'&&$('#auto').checked&&okDate(cur.issue)){cur.expiry=addY(cur.issue,10);$('[data-k=expiry]').value=cur.expiry}dupWarn()}
+ if(s)cur.show[s]=e.target.checked;render()});
+function dupWarn(){const d=db.find(c=>c.id&&c.id.toLowerCase()===cur.id.trim().toLowerCase()&&c.uid!==cur.uid);$('[data-e=id]').innerHTML=d?`<span class="wn">⚠ This ID is already assigned to ${esc(d.name)}.</span>`:''}
+const genId=()=>{const used=new Set(db.map(c=>c.id)),span=db.length>7000?90000:9000;let id;do{id=String(1000+crypto.getRandomValues(new Uint32Array(1))[0]%span)}while(used.has(id));return id};
+$('#gen').onclick=()=>{cur.id=genId();$('[data-k=id]').value=cur.id;dupWarn();render();toast('New ID code generated')};
+$('#photo').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=()=>{const W=420,H=540,cv=document.createElement('canvas');cv.width=W;cv.height=H;const x=cv.getContext('2d'),s=Math.max(W/im.width,H/im.height),w=im.width*s,h=im.height*s;x.fillStyle='#dfe5ea';x.fillRect(0,0,W,H);x.drawImage(im,(W-w)/2,(H-h)*.2,w,h);cur.photo=cv.toDataURL('image/jpeg',.86);thumb();render()};im.onerror=()=>toast('Could not read that image');im.src=r.result};r.readAsDataURL(f);e.target.value=''};
+$('#rmph').onclick=()=>{cur.photo='';thumb();render()};
+// ---------- validation / save ----------
+function validate(c){const e={};
+ if(!c.name.trim())e.name="Please enter the citizen's full name.";
+ if(!c.id.trim())e.id='Please enter or generate an ID code.';else{const d=db.find(x=>x.id.toLowerCase()===c.id.trim().toLowerCase()&&x.uid!==c.uid);if(d)e.id=`ID already belongs to ${d.name}. Generate a different code.`}
+ if(!okDate(c.dob))e.dob='Enter a valid date of birth.';else if(c.dob>today())e.dob='Date of birth cannot be in the future.';
+ if(!okDate(c.issue))e.issue='Enter a valid issue date.';
+ if(!okDate(c.expiry))e.expiry='Enter a valid expiry date.';else if(okDate(c.issue)&&c.expiry<c.issue)e.expiry='Expiry cannot be before the issue date.';
+ return e}
+$('#save').onclick=()=>{const e=validate(cur);$$('.er').forEach(x=>x.textContent=e[x.dataset.e]||'');
+ const b=$('#banner');if(Object.keys(e).length){b.style.display='block';b.textContent='Please fix the highlighted fields before saving.';return}
+ b.style.display='none';cur.id=cur.id.trim();cur.name=cur.name.trim();
+ if(!cur.uid)cur.uid=Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+ const i=db.findIndex(c=>c.uid===cur.uid),copy=JSON.parse(JSON.stringify(cur));putC(copy);list();
+ toast(cur.photo?'Citizen saved':'Citizen saved — no photo attached yet')};
+const reset=c=>{cur=c;fill();render()};
+$('#new').onclick=()=>{reset(blank());toast('New citizen')};
+$('#clr').onclick=()=>{const u=cur.uid;const b=blank();Object.assign(b,{issue:'',expiry:'',nat:'',cit:'Citizen',uid:u});reset(b)};
+// ---------- card rendering ----------
+const qrSvg=t=>{const q=qrcode(0,'M');q.addData(t);q.make();const n=q.getModuleCount();let p='';for(let r=0;r<n;r++)for(let c=0;c<n;c++)if(q.isDark(r,c))p+=`M${c} ${r}h1v1h-1z`;return `<svg viewBox="-2 -2 ${n+4} ${n+4}" shape-rendering="crispEdges"><path d="${p}" fill="#0d1b2e"/></svg>`};
+const P=`212222 222122 222221 121223 121322 131222 122213 122312 132212 221213 221312 231212 112232 122132 122231 113222 123122 123221 223211 221132 221231 213212 223112 312131 311222 321122 321221 312212 322112 322211 212123 212321 232121 111323 131123 131321 112313 132113 132311 211313 231113 231311 112133 112331 132131 113123 113321 133121 313121 211331 231131 213113 213311 213131 311123 311321 331121 312113 312311 332111 314111 221411 431111 111224 111422 121124 121421 141122 141221 112214 112412 122114 122411 142112 142211 241211 221114 413111 241112 134111 111242 121142 121241 114212 124112 124211 411212 421112 421211 212141 214121 412121 111143 111341 131141 114113 114311 411113 411311 113141 114131 311141 411131 211412 211214 211232`.split(' ');P[106]='2331112';
+const bars=id=>{const d=[...String(id||'0')].map(ch=>{const k=ch.charCodeAt(0)-32;return k>=0&&k<95?k:0}),v=[104,...d];v.push(v.reduce((a,x,i)=>a+x*(i||1),0)%103);v.push(106);let x=10,r='';v.forEach(n=>{[...P[n]].forEach((w,i)=>{w=+w;if(i%2===0)r+=`<rect x="${x}" width="${w}" height="46"/>`;x+=w})});const W=x+10,sc=Math.min(4,520/W);return `<svg viewBox="0 0 ${W} 46" preserveAspectRatio="none" style="width:${W*sc}px;height:46px;background:#fff;display:block"><g fill="#000" shape-rendering="crispEdges">${r}</g></svg>`};
+function card(c,side){
+ const T=tier(c),s=c.show,id=c.id||'0000',st=status(c),nm=c.name||'Citizen Name',dim=c.name?'':'style="opacity:.35"';
+ const f=(k,l,v,x='')=>s[k]&&v?`<div class="f ${x}"><i>${l}</i><b>${esc(v)}</b></div>`:'';
+ if(side==='f'){
+  const mt=('VIVA L’AVENA • AVENA • ').repeat(40);
+  return `<div class="card" style="--a1:${T[1]};--a2:${T[2]}"><div class="pat"></div><svg class="wm"><use href="#fox"/></svg>
+<div class="hd"><svg class="flg"><use href="#flag"/></svg><div class="br"><h1>AVENA</h1><p>GOVERNMENT OF AVENA · NATIONAL IDENTIFICATION OFFICE</p></div><div class="holo"><svg><use href="#fox"/></svg></div></div>
+<div class="ban">NATIONAL IDENTIFICATION CARD</div>
+<div class="pho">${c.photo?`<img src="${c.photo}" alt="">`:'<svg viewBox="0 0 100 130"><circle cx="50" cy="48" r="22"/><path d="M10 130c0-34 18-48 40-48s40 14 40 48z"/></svg>'}</div>
+<div class="inf"><div class="nm" ${dim} style="${nm.length>24?'font-size:30px':''}">${esc(nm)}</div>${s.pref&&c.pref?`<div class="pf">“${esc(c.pref)}”</div>`:''}<div class="idn">${esc(id)}</div>
+<div class="gr">${f('dob','Date of birth',fmt(c.dob))}${f('cit','Citizenship',c.cit)}${f('role','Position',c.role,'s2')}${f('issue','Issued',fmt(c.issue))}${f('expiry','Expires',fmt(c.expiry))}</div></div>
+<div class="mt">${mt}</div>
+<div class="ft"><span>VIVA L’AVENA</span><span class="tl">${T[0]}</span><span class="pill ${st!=='Active'?'x':''}">${st.toUpperCase()}</span></div></div>`}
+ const qt=`AVENA\nID: ${id}\nNAME: ${c.name||'-'}\nSTATUS: ${c.cit}\nISSUED: ${c.issue||'-'}\nEXPIRES: ${c.expiry||'-'}`;
+ return `<div class="card" style="--a1:${T[1]};--a2:${T[2]}"><div class="pat"></div>
+<div class="bhd"><svg><use href="#flag"/></svg>GOVERNMENT OF AVENA<svg class="fx"><use href="#fox"/></svg></div>
+<div class="bin"><div class="gr">${f('res','Place of residence',c.res,'s2')}${f('prov','Province / Territory',c.prov)}${f('nat','Nationality',c.nat)}${f('blood','Blood type',c.blood)}<div class="f"><i>Holder</i><b>${esc(nm)}</b></div>${s.notes&&c.notes?`<div class="f s2"><i>Notes</i><b class="cn">${esc(c.notes)}</b></div>`:''}</div></div>
+<div class="qr">${qrSvg(qt)}</div><div class="qc">SCAN TO VERIFY</div>
+<div class="sg">${s.sig&&c.sig?`<span>${esc(c.sig)}</span>`:''}</div><div class="sgl">SIGNATURE OF HOLDER</div>
+<div class="emb"><svg><use href="#fox"/></svg><div>VIVA L’AVENA</div></div>
+<div class="bc">${bars(id)}</div><div class="bct">${esc(id)}</div>
+<div class="bf"><b>PROPERTY OF THE GOVERNMENT OF AVENA</b><small>This card is issued by the National Identification Office and remains government property. If found, return to any Avena government office.</small></div></div>`}
+// ---------- preview ----------
+function render(){$('#ff .sc').innerHTML=card(cur,'f');$('#fb .sc').innerHTML=card(cur,'b');layout()}
+function layout(){const av=$('#bench').clientWidth-40;if(fit){const wide=matchMedia('(min-width:1101px)').matches,hh=wide?(innerHeight-250)/(view==='both'?1102:540):9;zoom=Math.max(.3,Math.min(1,av/856,hh))}$('#zm').value=zoom;
+ const W=856*zoom,H=540*zoom,G=22,both=view==='both';
+ $('#stage').style.cssText=`width:${W}px;height:${both?2*H+G:H}px`;
+ [['#ff',0,view==='back'?-180:0],['#fb',both?H+G:0,view==='back'||both?0:180]].forEach(([s,t,r])=>{const e=$(s);e.style.width=W+'px';e.style.height=H+'px';e.style.transform=`translateY(${t}px) rotateY(${r}deg)`;e.firstChild.style.transform=`scale(${zoom})`})}
+$('#seg').onclick=e=>{const v=e.target.dataset.v;if(!v)return;view=v;$$('#seg button').forEach(b=>b.classList.toggle('on',b.dataset.v===v));layout()};
+$('#zm').oninput=e=>{fit=false;zoom=+e.target.value;layout()};$('#fit').onclick=()=>{fit=true;layout()};{let lw=0;new ResizeObserver(()=>{const w=$('#bench').clientWidth;if(w!==lw){lw=w;layout()}}).observe($('#bench'));addEventListener('resize',layout)}
+$('#theme').onclick=()=>{const d=document.documentElement,dark=getComputedStyle(d).getPropertyValue('--bg').trim()==='#0c1118';d.dataset.theme=dark?'light':'dark'};
+// ---------- citizens table ----------
+function list(){$('#cnt').textContent=db.length;dash();const q=$('#q').value.toLowerCase(),k=$('#so').value;
+ const rows=db.filter(c=>[c.name,c.id,c.role,c.cit].join(' ').toLowerCase().includes(q)).sort((a,b)=>k==='issue'?(b.issue||'').localeCompare(a.issue||''):k==='expiry'?(a.expiry||'').localeCompare(b.expiry||''):(a[k]||'').localeCompare(b[k]||''));
+ $('#tb').innerHTML=rows.length?rows.map(c=>{const st=status(c);return `<tr><td><input type="checkbox" data-a="sel" data-u="${c.uid}" ${sel.has(c.uid)?'checked':''}></td><td><b>${esc(c.name)}</b></td><td class="mono">${esc(c.id)}</td><td>${esc(c.role)||'—'}</td><td>${esc(c.cit)}</td><td>${fmt(c.issue)}</td><td><span class="tag ${st!=='Active'?'x':''}">${st}</span></td><td><div class="row"><button class="btn sm pr" data-a="view" data-u="${c.uid}">View</button><button class="btn sm" data-a="load" data-u="${c.uid}">Edit</button><button class="btn sm" data-a="dup" data-u="${c.uid}">Duplicate</button><button class="btn sm dg" data-a="del" data-u="${c.uid}">${pend===c.uid?'Confirm delete?':'Delete'}</button></div></td></tr>`}).join(''):`<tr><td colspan="8" style="color:var(--mu)">${db.length?'No citizens match your search.':'No saved citizens yet. Fill in the form and press Save Citizen.'}</td></tr>`}
+$('#q').oninput=list;$('#so').onchange=list;
+$('#tb').onclick=e=>{const b=e.target.closest('[data-a]');if(!b)return;const c=db.find(x=>x.uid===b.dataset.u);if(!c)return;
+ if(b.dataset.a==='sel'){b.checked?sel.add(c.uid):sel.delete(c.uid);return}
+ if(b.dataset.a==='view')return openRec(c);
+ if(b.dataset.a==='load'){reset({...blank(),...JSON.parse(JSON.stringify(c))});scrollTo({top:0,behavior:'smooth'});toast('Loaded '+c.name)}
+ if(b.dataset.a==='dup'){const d=JSON.parse(JSON.stringify(c));d.uid=Date.now().toString(36)+Math.random().toString(36).slice(2,6);d.name+=' (Copy)';d.id=genId();putC(d);list();toast('Duplicated with a new ID code')}
+ if(b.dataset.a==='del'){if(pend===c.uid){delC(c.uid);pend=null;if(cur.uid===c.uid)cur.uid='';toast('Citizen deleted')}else{pend=c.uid;setTimeout(()=>{pend=null;list()},3500)}list()}};
+// ---------- print ----------
+$('#print').onclick=()=>{const per=+$('#ppp').value,sd=$('#psd').value,src=$('#psrc').value,L=src==='all'?db:src==='sel'?db.filter(c=>sel.has(c.uid)):[cur];
+ if(!L.length){toast('No saved citizens to print');return}
+ if(src==='cur'&&(!cur.name||!cur.id))toast('Tip: the current card is missing a name or ID');
+ const cells=[];L.forEach(c=>{if(sd!=='b')cells.push(card(c,'f'));if(sd!=='f')cells.push(card(c,'b'))});
+ let h='';for(let i=0;i<cells.length;i+=per)h+=`<div class="pg ${per===1?'one':''}">${cells.slice(i,i+per).map(x=>`<div class="pc"><div class="sc">${x}</div></div>`).join('')}</div>`;
+ $('#sheet').innerHTML=h;
+ try{setTimeout(()=>window.print(),150)}catch(e){toast('Printing is blocked here — open the page in its own tab and try again')}};
+// ---------- record page + scanner ----------
+let recC=null;
+function openRec(c){recC=c;const st=status(c),r=(l,v,x='')=>`<div class="rr ${x}"><i>${l}</i><b>${esc(v)||'—'}</b></div>`;
+ const oth=(c.other||'').split('\n').filter(x=>x.trim()).map(x=>{const i=x.indexOf(':');return i>0?r(x.slice(0,i).trim(),x.slice(i+1).trim()):r('Note',x)}).join('');
+ const bad=c.crimes&&!/^(none|n\/a)?$/i.test(c.crimes.trim());
+ $('#recb').innerHTML=`<div class="rh">${c.photo?`<img src="${c.photo}" alt="">`:'<div class="np">No photo</div>'}<div><h2>${esc(c.name)}</h2><div class="mono" style="margin-bottom:6px">ID ${esc(c.id)}</div><span class="tag ${st!=='Active'?'x':''}">${st}</span> <span class="tag" style="background:var(--bl)">${esc(c.clr||'Level —')}</span></div></div>
+<div class="rg">${r('Preferred name',c.pref)}${r('Position',c.role)}${r('Citizenship',c.cit)}${r('Nationality',c.nat)}${r('Date of birth',fmt(c.dob))}${r('Gender',c.gender)}${r('Military branch / rank',c.mil)}${r('Awards',c.awards)}${r('Criminal history',c.crimes,bad?'bad w':'w')}${r('Activity status',c.act)}${r('Blood type',c.blood)}${r('Province / territory',c.prov)}${r('Residence',c.res)}${r('Issued',fmt(c.issue))}${r('Expires',fmt(c.expiry))}${r('Email',c.email)}${r('Phone',c.phone)}${r('Notes',c.notes,'w')}${oth}</div>
+<div class="row" style="margin-top:18px"><button class="btn pr" data-r="edit">Open in editor</button><button class="btn gr" data-r="renew">Renew card</button><button class="btn dg" data-r="repl">Replace card (new ID)</button><button class="btn" data-r="close">Close</button></div>`;$('#rec').hidden=false}
+$('#rec').onclick=e=>{const a=e.target.dataset.r;if(e.target.id==='rec'||a==='close')$('#rec').hidden=true;
+ if(a==='edit'){$('#rec').hidden=true;reset({...blank(),...JSON.parse(JSON.stringify(recC))});scrollTo({top:0,behavior:'smooth'})}
+ const c=db.find(x=>recC&&x.uid===recC.uid);
+ if(a==='renew'&&c){if(c.cs==='Revoked'){toast('Revoked cards cannot be renewed — change Card Status in the editor first');return}c.issue=today();c.expiry=addY(today(),10);c.cs='Active';putC(c);list();openRec(c);toast('Card renewed until '+fmt(c.expiry))}
+ if(a==='repl'&&c){const n=JSON.parse(JSON.stringify(c)),old=c.id;n.uid=newUid();n.id=genId();n.issue=today();n.expiry=addY(today(),10);n.cs='Active';n.other=((n.other||'')+'\nReplaced card: '+old).trim();c.cs='Lost / Replaced';putC(c);putC(n);list();openRec(n);toast('New card issued. Old ID '+old+' is now invalid')}
+};
+addEventListener('keydown',e=>{if(e.key==='Escape')$('#rec').hidden=true});
+$('#lk').onclick=()=>lookup($('#lkv').value);$('#lkv').onkeydown=e=>{if(e.key==='Enter')lookup(e.target.value)};
+let rd=null;
+function stopCam(){try{rd&&rd.reset()}catch(e){}rd=null;$('#vid').hidden=true;$('#cam').textContent='Start camera'}
+$('#cam').onclick=async()=>{if(rd){stopCam();return}if(typeof ZXing==='undefined'){toast('Scanner library did not load');return}
+ $('#vid').hidden=false;rd=new ZXing.BrowserMultiFormatReader();$('#cam').textContent='Stop camera';
+ try{await rd.decodeFromVideoDevice(null,'vid',r=>{if(r){const t=r.getText();stopCam();lookup(t)}})}catch(e){stopCam();toast('Camera unavailable here — open the link in its own tab, upload a photo, or type the ID')}};
+$('#img').onchange=async e=>{const f=e.target.files[0];e.target.value='';if(!f)return;if(typeof ZXing==='undefined'){toast('Scanner library did not load');return}
+ const u=URL.createObjectURL(f);try{const r=await new ZXing.BrowserMultiFormatReader().decodeFromImageUrl(u);lookup(r.getText())}catch(x){toast('No barcode or QR code found in that image')}URL.revokeObjectURL(u)};
+// ---------- tiers, scan log, dashboard, checkpoint ----------
+const sel=new Set(),newUid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+let scans=[];try{scans=JSON.parse(localStorage.getItem('avena.scans')||'[]')}catch(e){}
+const tier=c=>{const n=parseInt((c.clr||'').replace(/\D/g,''))||1;return n>=9?['EXECUTIVE','#6b4f00','#c9a227']:n>=6?['SENIOR OFFICIAL','#1a2f55','#4a6fa5']:n>=3?['OFFICIAL','#0e5a36','#2b9b64']:['CITIZEN','#0d1b2e','#17335a']};
+const flagged=c=>c.crimes&&!/^(none|n\/a)?$/i.test(c.crimes.trim());
+const verdict=c=>{if(!c)return['NOT FOUND','nf'];const st=status(c);return st==='Active'?['VALID','ok']:st==='Expired'||st==='Suspended'?[st.toUpperCase(),'wn']:[st.toUpperCase(),'bad']};
+function logScan(id,c,v){const x={t:Date.now(),id,name:c?c.name:'',v};scans.push(x);if(scans.length>300)scans.shift();
+ if(D)D.collection('scans').doc(x.t.toString(36)+Math.random().toString(36).slice(2,5)).set(x).catch(()=>{});else try{localStorage.setItem('avena.scans',JSON.stringify(scans))}catch(e){}renderLog();dash()}
+function renderLog(){$('#lg').innerHTML=scans.length?scans.slice(-50).reverse().map(x=>`<tr><td>${new Date(x.t).toLocaleString([],{dateStyle:'short',timeStyle:'short'})}</td><td class="mono">${esc(x.id)}</td><td>${esc(x.name)||'—'}</td><td><span class="tag ${x.v==='VALID'?'':'x'}">${esc(x.v)}</span></td></tr>`).join(''):'<tr><td colspan="4" style="color:var(--mu)">No scans yet.</td></tr>'}
+$('#clog').onclick=()=>{scans=[];if(D)D.collection('scans').get().then(q=>q.docs.forEach(d=>D.collection('scans').doc(d.id).delete())).catch(()=>{});else try{localStorage.removeItem('avena.scans')}catch(e){}renderLog();dash();toast('Scan log cleared')};
+function dash(){const C={},soon=[];db.forEach(c=>{const st=status(c);C[st]=(C[st]||0)+1;if(st==='Active'){const d=Math.ceil((new Date(c.expiry)-new Date(today()))/864e5);if(d<=30)soon.push([d,c])}});
+ const sc=scans.filter(x=>new Date(x.t).toDateString()===new Date().toDateString()).length,bad=db.length-(C.Active||0)-(C.Expired||0),t=(n,l)=>`<div class="st"><b>${n}</b>${l}</div>`;
+ $('#stats').innerHTML=t(db.length,'Total citizens')+t(C.Active||0,'Active')+t(C.Expired||0,'Expired')+t(bad,'Suspended / revoked / lost')+t(soon.length,'Expiring in 30 days')+t(sc,'Scans today');
+ $('#soon').innerHTML=soon.length?`<div class="lab" style="margin-top:14px">Expiring soon</div>`+soon.sort((a,b)=>a[0]-b[0]).map(([d,c])=>`<div>${esc(c.name)} <span class="mono">${esc(c.id)}</span> — ${d} day${d===1?'':'s'} (${fmt(c.expiry)})</div>`).join(''):''}
+function lookup(raw){const m=/ID:\s*(\S+)/i.exec(raw),id=(m?m[1]:raw).trim(),c=db.find(x=>x.id.toLowerCase()===id.toLowerCase());
+ if(!id)return;logScan(id,c,verdict(c)[0]);if(!c){$('#sres').textContent=`No saved citizen with ID “${id}” in the database.`;return}$('#sres').textContent='';$('#lkv').value='';openRec(c)}
+$('#selall').onchange=e=>{e.target.checked?db.forEach(c=>sel.add(c.uid)):sel.clear();list()};
+// checkpoint mode
+let ac,ckrd=null,lastT='',lastAt=0;
+const beep=(f,d)=>{try{ac=ac||new(window.AudioContext||webkitAudioContext)();const o=ac.createOscillator(),g=ac.createGain();o.frequency.value=f;g.gain.value=.15;o.connect(g);g.connect(ac.destination);o.start();o.stop(ac.currentTime+d)}catch(e){}};
+function ckList(){$('#ckl').innerHTML=scans.length?'<div class="kv"><i>Recent checks</i></div>'+scans.slice(-5).reverse().map(x=>`<div>${new Date(x.t).toLocaleTimeString([],{timeStyle:'short'})} · <span class="mono">${esc(x.id)}</span> ${esc(x.name)} — ${esc(x.v)}</div>`).join(''):''}
+function ckCheck(raw){const m=/ID:\s*(\S+)/i.exec(raw),id=(m?m[1]:raw).trim();if(!id)return;const c=db.find(x=>x.id.toLowerCase()===id.toLowerCase()),[v,k]=verdict(c);logScan(id,c,v);
+ beep(k==='ok'?880:300,k==='ok'?.15:.4);try{navigator.vibrate&&navigator.vibrate(k==='ok'?60:[120,60,120])}catch(e){}
+ $('#ckr').innerHTML=`<div class="vd ${k}">${v}</div>`+(c?`<div class="ckc">${c.photo?`<img src="${c.photo}" alt="">`:'<div class="np">No photo</div>'}<div><h2>${esc(c.name)}</h2><div class="mono">ID ${esc(c.id)}</div><div class="kv"><i>Position</i>${esc(c.role)||'—'}</div><div class="kv"><i>Clearance</i>${esc(c.clr||'—')} · ${tier(c)[0]}</div><div class="kv"><i>Citizenship</i>${esc(c.cit)}</div><div class="kv"><i>Expires</i>${fmt(c.expiry)||'—'}</div>${flagged(c)?'<div class="kv" style="color:#ff8a8a">⚠ Record on file</div>':''}<div style="margin-top:10px"><button class="btn" data-ck="${c.uid}">Full record</button></div></div></div>`:`<div class="ckc"><div><h2>No record</h2><div class="mono">${esc(id)}</div><p>This code is not registered in the database.</p></div></div>`);ckList()}
+function ckStop(){try{ckrd&&ckrd.reset()}catch(e){}ckrd=null}
+async function ckStart(){ckStop();if(typeof ZXing==='undefined'){$('#ckmsg').textContent='Scanner library did not load — use manual entry';return}
+ ckrd=new ZXing.BrowserMultiFormatReader();$('#ckmsg').textContent='Starting camera…';
+ try{await ckrd.decodeFromVideoDevice(null,'ckv',r=>{if(!r)return;const t=r.getText(),n=Date.now();if(t===lastT&&n-lastAt<3500){lastAt=n;return}lastT=t;lastAt=n;ckCheck(t)});$('#ckmsg').textContent='Scanning — hold the code inside the frame'}
+ catch(e){ckStop();$('#ckmsg').textContent='Camera unavailable — allow access, open the link in its own tab, or use manual entry'}}
+$('#ckopen').onclick=()=>{stopCam();try{ac=ac||new(window.AudioContext||webkitAudioContext)()}catch(e){}$('#ck').hidden=false;document.body.style.overflow='hidden';ckList();try{navigator.wakeLock&&navigator.wakeLock.request('screen').catch(()=>{})}catch(e){}ckStart()};
+$('#ckx').onclick=()=>{ckStop();$('#ck').hidden=true;document.body.style.overflow=''};
+$('#ckcam').onclick=ckStart;$('#ckgo').onclick=()=>{ckCheck($('#ckin').value);$('#ckin').value=''};$('#ckin').onkeydown=e=>{if(e.key==='Enter')$('#ckgo').click()};
+$('#ckr').onclick=e=>{const u=e.target.dataset.ck;if(u){const c=db.find(x=>x.uid===u);c&&openRec(c)}};
+let D=null,usr=null,localC=[];try{localC=JSON.parse(localStorage.getItem('avena.citizens')||'[]')}catch(e){}
+const dberr=e=>toast(e&&e.code==='invalid_argument'?'View-only access — changes were not saved':'Database error: '+((e&&e.code)||'unknown'));
+function putC(c){c=JSON.parse(JSON.stringify(c));const i=db.findIndex(x=>x.uid===c.uid);i>=0?db[i]=c:db.push(c);if(D)D.collection('citizens').doc(c.uid).set(c).catch(dberr);else persist()}
+function delC(u){db=db.filter(x=>x.uid!==u);if(D)D.collection('citizens').doc(u).delete().catch(dberr);else persist()}
+async function connect(){let cl=null;try{cl=typeof claude!=='undefined'?await claude.use('db'):null}catch(e){}
+ if(!cl)return;D=cl;try{usr=await claude.use('user')}catch(e){}
+ let ro=false;try{ro=!!usr&&usr.can('data.write')===false}catch(e){}
+ $('#dbs').textContent=ro?'● Shared · read only':'● Shared database';$('#dbs').style.background=ro?'#d98a00':'#138a4b';
+ db=[];list();
+ D.collection('citizens').onSnapshot(q=>{db=q.docs.map(d=>({...d.data()}));list()},e=>toast('Database unavailable ('+((e&&e.code)||'error')+')'));
+ D.collection('scans').orderBy('t','desc').limit(100).onSnapshot(q=>{scans=q.docs.map(d=>d.data()).reverse();renderLog();dash();ckList()},()=>{});
+ if(localC.length&&!ro){$('#migt').textContent=localC.length+' citizen'+(localC.length>1?'s are':' is')+' saved only on this device. Upload to the shared database?';$('#mig').hidden=false}}
+$('#migb').onclick=()=>{localC.forEach(c=>{c.uid=c.uid||newUid();if(!db.some(x=>x.uid===c.uid))putC(c)});localC=[];try{localStorage.removeItem('avena.citizens')}catch(e){}$('#mig').hidden=true;toast('Uploaded to the shared database')};
+renderLog();
+fill();render();list();connect();
+if(location.hash==='#checkpoint')$('#ckopen').click();
+</script></body></html>

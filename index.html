@@ -173,6 +173,8 @@ body{background:#fff}
 <section class="pnl cl" id="log"><div class="tb" style="margin-bottom:10px"><h2 style="margin:0">Scan Log</h2><span class="sp"></span><button class="btn sm dg" id="clog">Clear log</button></div><div class="tw"><table><thead><tr><th>Time</th><th>ID scanned</th><th>Citizen</th><th>Result</th></tr></thead><tbody id="lg"></tbody></table></div></section>
 </main>
 <div id="sync" hidden><div class="lg" style="max-width:460px"><h2>GITHUB SYNC</h2><div class="lab">Keeps every device on the same citizens</div>
+<div class="row"><button class="btn pr" id="sy_scan">📷 Scan setup code</button><button class="btn" id="sy_paste">Paste setup link</button></div><video id="sy_v" hidden muted playsinline style="width:100%;max-height:260px;object-fit:cover;border-radius:8px;background:#000"></video><input type="text" id="sy_pl" placeholder="Paste setup link here" hidden>
+<div class="lab" style="font-weight:400;letter-spacing:0;text-transform:none">On a new device, scan the setup code shown on a device that is already connected, or fill in the boxes below.</div>
 <div class="fg"><div><div class="lab">GitHub account</div><input type="text" id="sy_o" autocomplete="off"></div><div><div class="lab">Repository</div><input type="text" id="sy_r" autocomplete="off"></div></div>
 <div><div class="lab">Access token (read &amp; write)</div><input type="password" id="sy_t" autocomplete="off" style="width:100%;background:var(--in);border:1px solid var(--ln);border-radius:7px;padding:8px 10px"></div>
 <div><div class="lab">Passphrase (encrypts the data, same on every device)</div><input type="password" id="sy_p" autocomplete="off" style="width:100%;background:var(--in);border:1px solid var(--ln);border-radius:7px;padding:8px 10px"></div>
@@ -422,7 +424,7 @@ function showLink(){const l=setupLink();$('#sy_link').hidden=false;$('#sy_qr').i
 function openSync(){$('#sy_o').value=S?S.o:(location.hostname.endsWith('github.io')?location.hostname.split('.')[0]:'');$('#sy_r').value=S?S.r:(/\.html$/.test(location.pathname.split('/')[1]||'')?'':(location.pathname.split('/')[1]||''));$('#sy_t').value=S?S.t:'';$('#sy_p').value=S?S.p:'';$('#sy_err').textContent='';
  $('#sy_link').hidden=!S;if(S)showLink();$('#sync').hidden=false}
 $('#syo').onclick=openSync;$('#dbs').onclick=openSync;
-$('#sy_c').onclick=()=>{$('#sync').hidden=true;try{localStorage.setItem('avena.syncSkip','1')}catch(e){}};
+$('#sy_c').onclick=()=>{stopSy();$('#sync').hidden=true;try{localStorage.setItem('avena.syncSkip','1')}catch(e){}};
 $('#sy_x').onclick=()=>{S=null;clearInterval(pollT);try{localStorage.removeItem('avena.sync')}catch(e){}setChip('none');$('#sy_link').hidden=true;toast('Sync disconnected — data stays on this device')};
 $('#sy_go').onclick=async()=>{const o=$('#sy_o').value.trim(),r=$('#sy_r').value.trim(),t=$('#sy_t').value.trim(),p=$('#sy_p').value;
  if(!o||!r||p.length<8){$('#sy_err').textContent='Enter the GitHub account, repository, and a passphrase of at least 8 characters.';return}
@@ -431,6 +433,20 @@ $('#sy_go').onclick=async()=>{const o=$('#sy_o').value.trim(),r=$('#sy_r').value
  const msg={ok:'',ro:'Connected read-only (no token).',pw:'Wrong passphrase for the existing data.',tok:'GitHub rejected the token or repository. Check the account, repo name and token permissions.',off:'Could not reach GitHub. Check your connection.',sync:''}[curState];
  $('#sy_err').textContent=msg||'';if(curState==='ok'||curState==='sync'||curState==='ro'){showLink()}};
 $('#sy_sh').onclick=()=>{if(navigator.share)navigator.share({title:'Avena ID setup',url:setupLink()}).catch(()=>{});else{$('#sy_lt').select();toast('Sharing not available here — copy the link instead')}};
+let syr=null;
+function stopSy(){try{syr&&syr.reset()}catch(e){}syr=null;const v=$('#sy_v');v.hidden=true;$('#sy_scan').textContent='📷 Scan setup code'}
+async function applySetup(txt){const m=/#(s|sync)=([^\s]+)/.exec(txt||'');if(!m)return false;let o;
+ try{const v=decodeURIComponent(escape(atob(m[2])));if(m[1]==='s'){const a=v.split('\n');o={o:a[0],r:a[1],t:a[2],p:a.slice(3).join('\n')}}else o=JSON.parse(v)}catch(e){return false}
+ if(!o||!o.o||!o.r||!o.p)return false;S=o;etag=null;try{localStorage.setItem('avena.sync',JSON.stringify(S))}catch(e){}
+ $('#sy_o').value=S.o;$('#sy_r').value=S.r;$('#sy_t').value=S.t||'';$('#sy_p').value=S.p;$('#sy_err').textContent='Connecting…';await startSync();
+ $('#sy_err').textContent={pw:'Wrong passphrase for the existing data.',tok:'GitHub rejected the token or repository.',off:'Could not reach GitHub. Check your connection.'}[curState]||'';
+ if(curState==='ok'||curState==='sync'||curState==='ro'){showLink();toast('Connected — this device is now syncing')}return true}
+$('#sy_scan').onclick=async()=>{if(syr){stopSy();return}if(typeof ZXing==='undefined'){$('#sy_err').textContent='Scanner library did not load. Use Paste setup link instead.';return}
+ $('#sy_v').hidden=false;$('#sy_scan').textContent='Stop camera';syr=new ZXing.BrowserMultiFormatReader();
+ try{await syr.decodeFromVideoDevice(null,'sy_v',r=>{if(r&&/#(s|sync)=/.test(r.getText())){const t=r.getText();stopSy();applySetup(t)}})}
+ catch(e){stopSy();$('#sy_err').textContent='Camera unavailable. Allow camera access, or use Paste setup link instead.'}};
+$('#sy_paste').onclick=()=>{const i=$('#sy_pl');i.hidden=false;i.focus()};
+$('#sy_pl').oninput=async e=>{if(await applySetup(e.target.value)){e.target.value='';e.target.hidden=true}};
 $('#sy_cp').onclick=()=>{const l=setupLink();(navigator.clipboard?navigator.clipboard.writeText(l):Promise.reject()).then(()=>toast('Setup link copied')).catch(()=>{prompt('Copy this link',l)})};
 // ---------- lockdown ----------
 const MASTER='ff5c3eb09883f515d565baa3a6c1c712127d0ad20f0d9e2b9c39d3a7d4eb33ca';

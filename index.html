@@ -34,7 +34,7 @@ main{max-width:1500px;margin:auto;padding:22px 24px;display:grid;grid-template-c
 .fg{display:grid;grid-template-columns:1fr 1fr;gap:12px}.fg .w{grid-column:1/-1}
 .lab{display:flex;justify-content:space-between;font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--mu);margin-bottom:3px}
 .sh{font-weight:400;letter-spacing:0;text-transform:none;cursor:pointer;white-space:nowrap}
-input[type=text],input[type=date],select,textarea{width:100%;background:var(--in);border:1px solid var(--ln);border-radius:7px;padding:8px 10px}
+input[type=text],input[type=password],input[type=date],select,textarea{width:100%;background:var(--in);border:1px solid var(--ln);border-radius:7px;padding:8px 10px}
 input:focus,select:focus,textarea:focus{outline:2px solid var(--bl);outline-offset:-1px}
 .er{color:var(--rd);font-size:13px;margin-top:2px;min-height:0}.wn{color:#b36b00;font-size:13px}
 .row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
@@ -80,6 +80,20 @@ th{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--mu)}
 .kv{margin-top:6px;font-size:16px}.kv i{display:block;font:normal 600 11px 'Barlow Semi Condensed',sans-serif;letter-spacing:2px;text-transform:uppercase;color:#93a0b0}#ckl{margin-top:14px;font-size:14px;opacity:.85}
 #login,#sync{position:fixed;inset:0;z-index:60;background:#070b11;display:grid;place-items:center;padding:16px}#login[hidden],#sync[hidden]{display:none}
 .lg{background:var(--pn);border-radius:12px;padding:26px;max-width:400px;width:100%;border-top:5px solid var(--bl);display:grid;gap:12px}.lg h2{margin:0;font-size:22px;letter-spacing:3px;color:var(--ink)}.lg svg{width:70px;height:46px;border-radius:3px}
+#lkd{position:fixed;inset:0;z-index:70;background:#070b11cc;display:grid;place-items:center;padding:16px}#lkd[hidden]{display:none}
+#lock{position:fixed;inset:0;z-index:100;background:radial-gradient(ellipse at center,#2a0710 0,#0a0306 70%);color:#fff;overflow:hidden;display:grid;place-items:center;text-align:center;padding:48px 20px;font-family:'Barlow Semi Condensed',sans-serif}#lock[hidden]{display:none}
+#lock.in{animation:lkin 1s cubic-bezier(.2,.8,.2,1)}@keyframes lkin{from{clip-path:circle(0% at 50% 50%);filter:brightness(2.5)}to{clip-path:circle(150% at 50% 50%);filter:none}}
+.lk-bar{position:absolute;left:0;right:0;height:26px;background:repeating-linear-gradient(-45deg,#ff2a3d 0 22px,#14080a 22px 44px);background-size:62px 62px;animation:lkbar 1.6s linear infinite;box-shadow:0 0 30px #ff2a3d66}.lk-bar.t{top:0}.lk-bar.b{bottom:0}@keyframes lkbar{to{background-position:62px 0}}
+.lk-radar{position:absolute;width:150vmax;height:150vmax;left:50%;top:50%;margin:-75vmax 0 0 -75vmax;border-radius:50%;background:conic-gradient(from 0deg,transparent 0 78%,#ff2a3d33 98%,#ff2a3d99 100%);-webkit-mask:radial-gradient(circle closest-side,#000 0,transparent 55%);mask:radial-gradient(circle closest-side,#000 0,transparent 55%);animation:lkspin 5s linear infinite}@keyframes lkspin{to{transform:rotate(360deg)}}
+.lk-ring{position:absolute;left:50%;top:50%;width:30vmin;height:30vmin;margin:-15vmin;border:2px solid #ff2a3d;border-radius:50%;opacity:0;animation:lkring 3.6s ease-out infinite}.lk-ring:nth-child(2){animation-delay:1.2s}.lk-ring:nth-child(3){animation-delay:2.4s}@keyframes lkring{from{transform:scale(.4);opacity:.8}to{transform:scale(3.2);opacity:0}}
+.lk-core{position:relative;max-width:660px;display:grid;gap:14px;justify-items:center}.lk-core svg.lk-fox{width:84px;height:84px;color:#ff2a3d;filter:drop-shadow(0 0 14px #ff2a3d);animation:lkp 1.6s ease-in-out infinite}@keyframes lkp{50%{transform:scale(1.12)}}
+.lk-flag{width:66px;height:44px;border-radius:3px;opacity:.9}.lk-tag{font-size:13px;letter-spacing:4px;opacity:.7;text-transform:uppercase}
+.lk-core h1{margin:0;font:700 clamp(34px,7vw,66px)/1 'Barlow Semi Condensed',sans-serif;letter-spacing:.14em;text-shadow:0 0 22px #ff2a3d;animation:lkf 3s infinite}@keyframes lkf{0%,92%,100%{opacity:1}94%{opacity:.55}96%{opacity:1}98%{opacity:.7}}
+.lk-core p{margin:0;font-size:17px;opacity:.85;max-width:520px}.lk-meta{font-size:15px;letter-spacing:2px;opacity:.9;text-transform:uppercase}.lk-meta b{color:#ff6a78}#lk_timer{font:600 26px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#ff6a78}
+.lk-ctl{display:flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:center;padding:10px 14px;border:1px solid #ff2a3d55;border-radius:10px;background:#ffffff08}
+.lk-b{background:#ffffff12;border:1px solid #ff2a3d88;color:#fff;border-radius:8px;padding:9px 16px;font:600 14px 'Barlow Semi Condensed',sans-serif;letter-spacing:2px;cursor:pointer;text-transform:uppercase}.lk-b:hover{background:#ff2a3d33}
+#lock input[type=password]{background:#0008;border:1px solid #ff2a3d88;color:#fff;width:200px;text-align:center}#lock input[type=range]{width:120px;accent-color:#ff2a3d}
+@media(prefers-reduced-motion:reduce){#lock,#lock *{animation:none!important}}
 /* ---------- CARD (856x540 design px = 85.6x54mm @10px/mm) ---------- */
 .card{position:relative;width:856px;height:540px;border-radius:32px;overflow:hidden;color:#14202e;font-family:'Barlow Semi Condensed','Arial Narrow',Arial,sans-serif;background:linear-gradient(135deg,#fbfaf5,#e9efe9 55%,#e1e8f3);text-align:left}
 .card>*{position:absolute}
@@ -136,7 +150,7 @@ body{background:#fff}
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
 <symbol id="flag" viewBox="0 0 96 64"><rect width="96" height="21.4" fill="#c8202f"/><rect y="21.3" width="96" height="21.5" fill="#138a4b"/><rect y="42.7" width="96" height="21.3" fill="#1747a6"/><rect x="74.6" width="21.4" height="21.4" fill="#fff"/><polygon fill="#000" points="85.3,2.7 87.2,8.1 92.9,8.2 88.3,11.7 90,17.2 85.3,13.9 80.6,17.2 82.3,11.7 77.7,8.2 83.4,8.1"/></symbol>
 <symbol id="fox" viewBox="0 0 64 64"><path fill="currentColor" d="M5 5 26 20h12L59 5l-2 29L32 61 7 34Z"/><path fill="#fff" opacity=".92" d="M19 36l13 9 13-9-13 24ZM18 31l9 4-5 4ZM46 31l-9 4 5 4Z"/><path fill="#000" d="M29 55h6l-3 5Z"/></symbol></defs></svg>
-<header><div class="hw"><svg><use href="#flag"/></svg><div><h1>GOVERNMENT OF AVENA</h1><p>National Identification Office · National ID Card Generator</p></div><span class="sp"></span><span class="tag" id="dbs" style="background:#5b6573">Local only</span><button class="btn" id="sgo" hidden>Sign out</button><button class="btn" id="ckopen">⌖ Checkpoint Mode</button><a href="#scan" class="btn" style="text-decoration:none">Scan</a><a href="#cit" class="btn" style="text-decoration:none">Citizens <span id="cnt">0</span></a><button class="btn" id="theme">◐ Theme</button></div></header>
+<header><div class="hw"><svg><use href="#flag"/></svg><div><h1>GOVERNMENT OF AVENA</h1><p>National Identification Office · National ID Card Generator</p></div><span class="sp"></span><span class="tag" id="dbs" style="background:#5b6573">Local only</span><button class="btn" id="lkopen" style="border-color:#c8202f;color:#ff8a8a">🔒 Lockdown</button><button class="btn" id="sgo" hidden>Sign out</button><button class="btn" id="ckopen">⌖ Checkpoint Mode</button><a href="#scan" class="btn" style="text-decoration:none">Scan</a><a href="#cit" class="btn" style="text-decoration:none">Citizens <span id="cnt">0</span></a><button class="btn" id="theme">◐ Theme</button></div></header>
 <main>
 <div id="top">
 <section class="pnl" id="fm"><h2>Citizen Information</h2><div id="banner"></div>
@@ -163,9 +177,20 @@ body{background:#fff}
 <div><div class="lab">Access token (read &amp; write)</div><input type="password" id="sy_t" autocomplete="off" style="width:100%;background:var(--in);border:1px solid var(--ln);border-radius:7px;padding:8px 10px"></div>
 <div><div class="lab">Passphrase (encrypts the data, same on every device)</div><input type="password" id="sy_p" autocomplete="off" style="width:100%;background:var(--in);border:1px solid var(--ln);border-radius:7px;padding:8px 10px"></div>
 <div class="row"><button class="btn pr" id="sy_go">Connect</button><button class="btn" id="sy_x">Disconnect</button><button class="btn" id="sy_c">Close</button></div><div class="er" id="sy_err"></div>
-<div id="sy_link" hidden><div class="lab">Set up another device: scan this with its camera, or copy the link</div><div class="row"><div id="sy_qr" style="width:170px;height:170px;background:#fff;padding:8px;border-radius:8px"></div><button class="btn sm" id="sy_cp">Copy setup link</button></div><div class="lab" style="font-weight:400;letter-spacing:0;text-transform:none">The link contains your token. Treat it like a password.</div></div></div></div>
+<div id="sy_link" hidden><div class="lab">Set up another device</div><div id="sy_qr" style="width:min(300px,100%);aspect-ratio:1;background:#fff;padding:12px;border-radius:8px;margin:6px auto"></div><div class="lab" style="font-weight:400;letter-spacing:0;text-transform:none">Open the phone camera, point it at the code above, and tap the link that appears. No camera link? Send yourself this link instead:</div><textarea id="sy_lt" readonly rows="3" style="font:12px monospace" onclick="this.select()"></textarea><div class="row"><button class="btn sm pr" id="sy_cp">Copy setup link</button><button class="btn sm" id="sy_sh">Share…</button></div><div class="lab" style="font-weight:400;letter-spacing:0;text-transform:none">The link contains your token. Treat it like a password.</div></div></div></div>
+<div id="lkd" hidden><div class="lg" style="max-width:440px;border-top-color:#c8202f"><svg><use href="#flag"/></svg><h2 style="color:#c8202f">INITIATE LOCKDOWN</h2><div class="lab">Suspends scanning, verification, card issuing and record access on every connected device</div>
+<input type="password" id="lkd_code" placeholder="Authorization code" autocomplete="off"><input type="text" id="lkd_name" placeholder="Your name (shown on the lockdown screen)" autocomplete="off"><input type="password" id="lkd_pin" placeholder="Choose a release PIN (4+ characters)" autocomplete="off">
+<div class="lab" style="font-weight:400;letter-spacing:0;text-transform:none">Only the person who knows the release PIN can end the lockdown.</div>
+<div class="row"><label class="sh"><input type="checkbox" id="lkd_al" checked> Sound alarm</label><label class="sh">Volume <input type="range" id="lkd_vol" min="0" max="1" step=".05" value=".6" style="vertical-align:middle;width:110px"></label></div>
+<div class="row"><button class="btn" id="lkd_go" style="background:#c8202f;color:#fff;border-color:#c8202f">ACTIVATE LOCKDOWN</button><button class="btn" id="lkd_x">Cancel</button></div><div class="er" id="lkd_err"></div></div></div>
+<div id="lock" hidden><div class="lk-radar"></div><div><div class="lk-ring"></div><div class="lk-ring"></div><div class="lk-ring"></div></div><div class="lk-bar t"></div><div class="lk-bar b"></div>
+<div class="lk-core"><svg class="lk-flag"><use href="#flag"/></svg><svg class="lk-fox"><use href="#fox"/></svg><div class="lk-tag">Government of Avena · National Identification Office</div><h1>LOCKDOWN IN EFFECT</h1>
+<p>All identification services are suspended. Scanning, verification, card issuing and record access are disabled.</p>
+<div class="lk-meta">Initiated by <b id="lk_by"></b> · <span id="lk_since"></span></div><div id="lk_timer">00:00:00</div>
+<div class="lk-ctl"><button class="lk-b" id="lk_al">🔔 Alarm on</button><label class="lab" style="margin:0;color:#fff">Volume <input type="range" id="lk_vol" min="0" max="1" step=".05"></label></div><div class="lk-tag" id="lk_snd" hidden>Tap anywhere on this screen to enable alarm sound</div>
+<button class="lk-b" id="lk_rb">Release lockdown</button><div id="lk_rel" hidden><input type="password" id="lk_pin" placeholder="Release PIN" autocomplete="off"> <button class="lk-b" id="lk_go">Release</button></div><div id="lk_err" style="color:#ff8a8a;min-height:20px"></div></div></div>
 <div id="login" hidden><div class="lg"><svg><use href="#flag"/></svg><h2>GOVERNMENT OF AVENA</h2><div class="lab">National Identification Office · Authorized personnel only</div><input type="text" id="lem" placeholder="Email" autocomplete="username"><input type="password" id="lpw" placeholder="Password" autocomplete="current-password" style="width:100%;background:var(--in);border:1px solid var(--ln);border-radius:7px;padding:8px 10px"><button class="btn pr" id="lgo">Sign in</button><div class="er" id="lerr"></div></div></div>
-<div id="ck" hidden><div class="ckh"><svg><use href="#flag"/></svg><div><b>AVENA CHECKPOINT</b><small>National Identification Office · ID Verification</small></div><span class="sp"></span><button class="btn" id="ckx">Exit</button></div>
+<div id="ck" hidden><div class="ckh"><svg><use href="#flag"/></svg><div><b>AVENA CHECKPOINT</b><small>National Identification Office · ID Verification</small></div><span class="sp"></span><button class="btn" id="lkopen2" style="border-color:#c8202f;color:#ff8a8a">🔒 Lockdown</button><button class="btn" id="ckx">Exit</button></div>
 <div class="ckb"><div><div class="ckv"><video id="ckv" muted playsinline></video><div class="rt"></div><div id="ckmsg">Starting camera…</div></div><div class="ckm"><input id="ckin" placeholder="Type or scan an ID" autocomplete="off"><button class="btn" id="ckgo">Check</button><button class="btn" id="ckcam">Camera</button></div></div>
 <div><div id="ckr"><div class="vd nf" style="border-radius:12px;opacity:.6">READY TO SCAN</div></div><div id="ckl"></div></div></div></div>
 <div id="rec" hidden><div id="recb"></div></div><div id="sheet"></div><div id="toast"></div>
@@ -215,7 +240,7 @@ function validate(c){const e={};
  if(!okDate(c.issue))e.issue='Enter a valid issue date.';
  if(!okDate(c.expiry))e.expiry='Enter a valid expiry date.';else if(okDate(c.issue)&&c.expiry<c.issue)e.expiry='Expiry cannot be before the issue date.';
  return e}
-$('#save').onclick=()=>{const e=validate(cur);$$('.er').forEach(x=>x.textContent=e[x.dataset.e]||'');
+$('#save').onclick=()=>{if(locked)return;const e=validate(cur);$$('.er').forEach(x=>x.textContent=e[x.dataset.e]||'');
  const b=$('#banner');if(Object.keys(e).length){b.style.display='block';b.textContent='Please fix the highlighted fields before saving.';return}
  b.style.display='none';cur.id=cur.id.trim();cur.name=cur.name.trim();
  if(!cur.uid)cur.uid=Date.now().toString(36)+Math.random().toString(36).slice(2,6);
@@ -225,7 +250,7 @@ const reset=c=>{cur=c;fill();render()};
 $('#new').onclick=()=>{reset(blank());toast('New citizen')};
 $('#clr').onclick=()=>{const u=cur.uid;const b=blank();Object.assign(b,{issue:'',expiry:'',nat:'',cit:'Citizen',uid:u});reset(b)};
 // ---------- card rendering ----------
-const qrSvg=t=>{const q=qrcode(0,'M');q.addData(t);q.make();const n=q.getModuleCount();let p='';for(let r=0;r<n;r++)for(let c=0;c<n;c++)if(q.isDark(r,c))p+=`M${c} ${r}h1v1h-1z`;return `<svg viewBox="-2 -2 ${n+4} ${n+4}" shape-rendering="crispEdges"><path d="${p}" fill="#0d1b2e"/></svg>`};
+const qrSvg=(t,lv)=>{const q=qrcode(0,lv||'M');q.addData(t);q.make();const n=q.getModuleCount();let p='';for(let r=0;r<n;r++)for(let c=0;c<n;c++)if(q.isDark(r,c))p+=`M${c} ${r}h1v1h-1z`;return `<svg viewBox="-2 -2 ${n+4} ${n+4}" shape-rendering="crispEdges"><path d="${p}" fill="#0d1b2e"/></svg>`};
 const P=`212222 222122 222221 121223 121322 131222 122213 122312 132212 221213 221312 231212 112232 122132 122231 113222 123122 123221 223211 221132 221231 213212 223112 312131 311222 321122 321221 312212 322112 322211 212123 212321 232121 111323 131123 131321 112313 132113 132311 211313 231113 231311 112133 112331 132131 113123 113321 133121 313121 211331 231131 213113 213311 213131 311123 311321 331121 312113 312311 332111 314111 221411 431111 111224 111422 121124 121421 141122 141221 112214 112412 122114 122411 142112 142211 241211 221114 413111 241112 134111 111242 121142 121241 114212 124112 124211 411212 421112 421211 212141 214121 412121 111143 111341 131141 114113 114311 411113 411311 113141 114131 311141 411131 211412 211214 211232`.split(' ');P[106]='2331112';
 const bars=id=>{const d=[...String(id||'0')].map(ch=>{const k=ch.charCodeAt(0)-32;return k>=0&&k<95?k:0}),v=[104,...d];v.push(v.reduce((a,x,i)=>a+x*(i||1),0)%103);v.push(106);let x=10,r='';v.forEach(n=>{[...P[n]].forEach((w,i)=>{w=+w;if(i%2===0)r+=`<rect x="${x}" width="${w}" height="46"/>`;x+=w})});const W=x+10,sc=Math.min(4,520/W);return `<svg viewBox="0 0 ${W} 46" preserveAspectRatio="none" style="width:${W*sc}px;height:46px;background:#fff;display:block"><g fill="#000" shape-rendering="crispEdges">${r}</g></svg>`};
 function card(c,side){
@@ -271,7 +296,7 @@ $('#tb').onclick=e=>{const b=e.target.closest('[data-a]');if(!b)return;const c=d
  if(b.dataset.a==='dup'){const d=JSON.parse(JSON.stringify(c));d.uid=Date.now().toString(36)+Math.random().toString(36).slice(2,6);d.name+=' (Copy)';d.id=genId();putC(d);list();toast('Duplicated with a new ID code')}
  if(b.dataset.a==='del'){if(pend===c.uid){delC(c.uid);pend=null;if(cur.uid===c.uid)cur.uid='';toast('Citizen deleted')}else{pend=c.uid;setTimeout(()=>{pend=null;list()},3500)}list()}};
 // ---------- print ----------
-$('#print').onclick=()=>{const per=+$('#ppp').value,sd=$('#psd').value,src=$('#psrc').value,L=src==='all'?db:src==='sel'?db.filter(c=>sel.has(c.uid)):[cur];
+$('#print').onclick=()=>{if(locked)return;const per=+$('#ppp').value,sd=$('#psd').value,src=$('#psrc').value,L=src==='all'?db:src==='sel'?db.filter(c=>sel.has(c.uid)):[cur];
  if(!L.length){toast('No saved citizens to print');return}
  if(src==='cur'&&(!cur.name||!cur.id))toast('Tip: the current card is missing a name or ID');
  const cells=[];L.forEach(c=>{if(sd!=='b')cells.push(card(c,'f'));if(sd!=='f')cells.push(card(c,'b'))});
@@ -315,14 +340,14 @@ function dash(){const C={},soon=[];db.forEach(c=>{const st=status(c);C[st]=(C[st
  const sc=scans.filter(x=>new Date(x.t).toDateString()===new Date().toDateString()).length,bad=db.length-(C.Active||0)-(C.Expired||0),t=(n,l)=>`<div class="st"><b>${n}</b>${l}</div>`;
  $('#stats').innerHTML=t(db.length,'Total citizens')+t(C.Active||0,'Active')+t(C.Expired||0,'Expired')+t(bad,'Suspended / revoked / lost')+t(soon.length,'Expiring in 30 days')+t(sc,'Scans today');
  $('#soon').innerHTML=soon.length?`<div class="lab" style="margin-top:14px">Expiring soon</div>`+soon.sort((a,b)=>a[0]-b[0]).map(([d,c])=>`<div>${esc(c.name)} <span class="mono">${esc(c.id)}</span> — ${d} day${d===1?'':'s'} (${fmt(c.expiry)})</div>`).join(''):''}
-function lookup(raw){const m=/ID:\s*(\S+)/i.exec(raw),id=(m?m[1]:raw).trim(),c=db.find(x=>x.id.toLowerCase()===id.toLowerCase());
+function lookup(raw){if(locked)return;const m=/ID:\s*(\S+)/i.exec(raw),id=(m?m[1]:raw).trim(),c=db.find(x=>x.id.toLowerCase()===id.toLowerCase());
  if(!id)return;logScan(id,c,verdict(c)[0]);if(!c){$('#sres').textContent=`No saved citizen with ID “${id}” in the database.`;return}$('#sres').textContent='';$('#lkv').value='';openRec(c)}
 $('#selall').onchange=e=>{e.target.checked?db.forEach(c=>sel.add(c.uid)):sel.clear();list()};
 // checkpoint mode
 let ac,ckrd=null,lastT='',lastAt=0;
 const beep=(f,d)=>{try{ac=ac||new(window.AudioContext||webkitAudioContext)();const o=ac.createOscillator(),g=ac.createGain();o.frequency.value=f;g.gain.value=.15;o.connect(g);g.connect(ac.destination);o.start();o.stop(ac.currentTime+d)}catch(e){}};
 function ckList(){$('#ckl').innerHTML=scans.length?'<div class="kv"><i>Recent checks</i></div>'+scans.slice(-5).reverse().map(x=>`<div>${new Date(x.t).toLocaleTimeString([],{timeStyle:'short'})} · <span class="mono">${esc(x.id)}</span> ${esc(x.name)} — ${esc(x.v)}</div>`).join(''):''}
-function ckCheck(raw){const m=/ID:\s*(\S+)/i.exec(raw),id=(m?m[1]:raw).trim();if(!id)return;const c=db.find(x=>x.id.toLowerCase()===id.toLowerCase()),[v,k]=verdict(c);logScan(id,c,v);
+function ckCheck(raw){if(locked)return;const m=/ID:\s*(\S+)/i.exec(raw),id=(m?m[1]:raw).trim();if(!id)return;const c=db.find(x=>x.id.toLowerCase()===id.toLowerCase()),[v,k]=verdict(c);logScan(id,c,v);
  beep(k==='ok'?880:300,k==='ok'?.15:.4);try{navigator.vibrate&&navigator.vibrate(k==='ok'?60:[120,60,120])}catch(e){}
  $('#ckr').innerHTML=`<div class="vd ${k}">${v}</div>`+(c?`<div class="ckc">${c.photo?`<img src="${c.photo}" alt="">`:'<div class="np">No photo</div>'}<div><h2>${esc(c.name)}</h2><div class="mono">ID ${esc(c.id)}</div><div class="kv"><i>Position</i>${esc(c.role)||'—'}</div><div class="kv"><i>Clearance</i>${esc(c.clr||'—')} · ${tier(c)[0]}</div><div class="kv"><i>Citizenship</i>${esc(c.cit)}</div><div class="kv"><i>Expires</i>${fmt(c.expiry)||'—'}</div>${flagged(c)?'<div class="kv" style="color:#ff8a8a">⚠ Record on file</div>':''}<div style="margin-top:10px"><button class="btn" data-ck="${c.uid}">Full record</button></div></div></div>`:`<div class="ckc"><div><h2>No record</h2><div class="mono">${esc(id)}</div><p>This code is not registered in the database.</p></div></div>`);ckList()}
 function ckStop(){try{ckrd&&ckrd.reset()}catch(e){}ckrd=null}
@@ -336,8 +361,8 @@ $('#ckcam').onclick=ckStart;$('#ckgo').onclick=()=>{ckCheck($('#ckin').value);$(
 $('#ckr').onclick=e=>{const u=e.target.dataset.ck;if(u){const c=db.find(x=>x.uid===u);c&&openRec(c)}};
 let D=null,usr=null,localC=[];try{localC=JSON.parse(localStorage.getItem('avena.citizens')||'[]')}catch(e){}
 const dberr=e=>toast(e&&(e.code==='invalid_argument'||e.code==='permission-denied')?'View-only access — changes were not saved':'Database error: '+((e&&e.code)||'unknown'));
-function putC(c){c=JSON.parse(JSON.stringify(c));c.upd=Date.now();const i=db.findIndex(x=>x.uid===c.uid);i>=0?db[i]=c:db.push(c);if(D)D.collection('citizens').doc(c.uid).set(c).catch(dberr);else{persist();if(S)schedulePush()}}
-function delC(u){db=db.filter(x=>x.uid!==u);if(baseMap)try{const t=JSON.parse(localStorage.getItem('avena.tomb')||'[]');t.push(u);localStorage.setItem('avena.tomb',JSON.stringify(t))}catch(e){}if(D)D.collection('citizens').doc(u).delete().catch(dberr);else{tomb[u]=Date.now();saveTomb();persist();if(S)schedulePush()}}
+function putC(c){if(locked)return;c=JSON.parse(JSON.stringify(c));c.upd=Date.now();const i=db.findIndex(x=>x.uid===c.uid);i>=0?db[i]=c:db.push(c);if(D)D.collection('citizens').doc(c.uid).set(c).catch(dberr);else{persist();if(S)schedulePush()}}
+function delC(u){if(locked)return;db=db.filter(x=>x.uid!==u);if(baseMap)try{const t=JSON.parse(localStorage.getItem('avena.tomb')||'[]');t.push(u);localStorage.setItem('avena.tomb',JSON.stringify(t))}catch(e){}if(D)D.collection('citizens').doc(u).delete().catch(dberr);else{tomb[u]=Date.now();saveTomb();persist();if(S)schedulePush()}}
 const loadJs=u=>new Promise((ok,no)=>{const e=document.createElement('script');e.src=u;e.onload=ok;e.onerror=no;document.head.appendChild(e)});
 let unsubs=[];
 async function connect(){const cfg=window.AVENA_FIREBASE;if(!cfg||!cfg.apiKey)return;
@@ -360,41 +385,42 @@ const b64=u=>{const a=new Uint8Array(u);let r='';for(let i=0;i<a.length;i+=8192)
 async function dkey(pw,salt){const m=await crypto.subtle.importKey('raw',new TextEncoder().encode(pw),'PBKDF2',false,['deriveKey']);return crypto.subtle.deriveKey({name:'PBKDF2',salt,iterations:150000,hash:'SHA-256'},m,{name:'AES-GCM',length:256},false,['encrypt','decrypt'])}
 async function seal(o,pw){const salt=crypto.getRandomValues(new Uint8Array(16)),iv=crypto.getRandomValues(new Uint8Array(12)),ct=await crypto.subtle.encrypt({name:'AES-GCM',iv},await dkey(pw,salt),new TextEncoder().encode(JSON.stringify(o)));return{s:b64(salt),i:b64(iv),c:b64(ct)}}
 async function unseal(d,pw){return JSON.parse(new TextDecoder().decode(await crypto.subtle.decrypt({name:'AES-GCM',iv:ub(d.i)},await dkey(pw,ub(d.s)),ub(d.c))))}
-if(location.hash.startsWith('#sync=')){try{localStorage.setItem('avena.sync',decodeURIComponent(escape(atob(location.hash.slice(6)))))}catch(e){}history.replaceState(null,'',location.pathname+location.search)}
+if(/^#(s|sync)=/.test(location.hash)){try{const h=location.hash,v=decodeURIComponent(escape(atob(h.slice(h.indexOf('=')+1))));let o;if(h.startsWith('#s=')){const a=v.split('\n');o={o:a[0],r:a[1],t:a[2],p:a.slice(3).join('\n')}}else o=JSON.parse(v);localStorage.setItem('avena.sync',JSON.stringify(o))}catch(e){}history.replaceState(null,'',location.pathname+location.search)}
 let S=null,rsha=null,etag=null,pushing=false,pulling=false,pollT=0,pt=0,curState='none',tomb={};
 try{S=JSON.parse(localStorage.getItem('avena.sync')||'null')}catch(e){}
 try{tomb=JSON.parse(localStorage.getItem('avena.tomb2')||'{}')}catch(e){}
 const saveTomb=()=>{try{localStorage.setItem('avena.tomb2',JSON.stringify(tomb))}catch(e){}};
 const GH=()=>`https://api.github.com/repos/${S.o}/${S.r}/contents/data.json`;
 const hdr=raw=>({'Accept':raw?'application/vnd.github.raw+json':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28',...(S.t?{Authorization:'Bearer '+S.t}:{})});
-const sigAll=x=>(x.citizens||[]).map(c=>c.uid+':'+(c.upd||0)).sort().join()+'|'+Object.keys(x.deleted||{}).sort().map(u=>u+':'+x.deleted[u]).join();
+const sigAll=x=>(x.citizens||[]).map(c=>c.uid+':'+(c.upd||0)).sort().join()+'|'+Object.keys(x.deleted||{}).sort().map(u=>u+':'+x.deleted[u]).join()+'|'+((x.lock&&x.lock.t)||0);
 function setChip(k){curState=k;const m={ok:['● Synced','#138a4b'],sync:['● Syncing…','#d98a00'],off:['● Offline — will retry','#d98a00'],ro:['● Read-only','#d98a00'],pw:['● Wrong passphrase','#c8202f'],tok:['● Check token / repo','#c8202f'],none:['Not synced','#5b6573']},[t,c]=m[k];const e=$('#dbs');e.textContent=t;e.style.background=c;e.style.cursor='pointer'}
 async function ghGet(cond){const h=hdr();if(cond&&etag)h['If-None-Match']=etag;const r=await fetch(GH(),{headers:h,cache:'no-store'});
  if(r.status===304)return{same:true};if(r.status===404)return{none:true};if(!r.ok)throw{status:r.status};
  etag=r.headers.get('ETag');const j=await r.json();let txt;
  if(j.content&&j.encoding==='base64')txt=atob(j.content.replace(/\n/g,''));else{const r2=await fetch(GH(),{headers:hdr(true),cache:'no-store'});if(!r2.ok)throw{status:r2.status};txt=await r2.text()}
  return{sha:j.sha,txt}}
-function merge(rem){const m=new Map((rem.citizens||[]).map(c=>[c.uid,c]));db.forEach(c=>{const b=m.get(c.uid);if(!b||(c.upd||0)>(b.upd||0))m.set(c.uid,c)});
+function merge(rem){if(rem.lock&&(rem.lock.t||0)>(LK.t||0))applyLock(rem.lock);const m=new Map((rem.citizens||[]).map(c=>[c.uid,c]));db.forEach(c=>{const b=m.get(c.uid);if(!b||(c.upd||0)>(b.upd||0))m.set(c.uid,c)});
  const dl={...(rem.deleted||{})};for(const u in tomb)dl[u]=Math.max(tomb[u],dl[u]||0);for(const u in dl){const c=m.get(u);if(c&&(c.upd||0)<=dl[u])m.delete(u)}tomb=dl;db=[...m.values()]}
 async function pull(first){if(!S||pulling||pushing)return;pulling=true;try{const g=await ghGet(!first);if(g.same){setChip(S.t?'ok':'ro');return}
  let rem={citizens:[],deleted:{}};if(!g.none){rsha=g.sha;try{rem=await unseal(JSON.parse(g.txt),S.p)}catch(e){setChip('pw');return}}else rsha=null;
  const before=sigAll(rem);merge(rem);list();persist();saveTomb();
- if(sigAll({citizens:db,deleted:tomb})!==before){if(S.t)schedulePush();else setChip('ro')}else setChip(S.t?'ok':'ro')}
+ if(sigAll({citizens:db,deleted:tomb,lock:LK})!==before){if(S.t)schedulePush();else setChip('ro')}else setChip(S.t?'ok':'ro')}
  catch(e){setChip(e&&(e.status===401||e.status===403)?'tok':'off')}finally{pulling=false}}
 function schedulePush(){if(!S)return;if(!S.t){setChip('ro');toast('Read-only: add a token in GitHub sync settings to share changes');return}clearTimeout(pt);setChip('sync');pt=setTimeout(()=>push(0),1200)}
 async function push(n){if(pushing||pulling){pt=setTimeout(()=>push(n),800);return}pushing=true;let retry=false;
  try{const g=await ghGet(false);let rem={citizens:[],deleted:{}};if(!g.none){rsha=g.sha;rem=await unseal(JSON.parse(g.txt),S.p)}else rsha=null;
   merge(rem);list();persist();saveTomb();
-  const body={message:'Update citizens',content:btoa(JSON.stringify(await seal({citizens:db,deleted:tomb},S.p)))};if(rsha)body.sha=rsha;
+  const body={message:'Update citizens',content:btoa(JSON.stringify(await seal({citizens:db,deleted:tomb,lock:LK},S.p)))};if(rsha)body.sha=rsha;
   const r=await fetch(GH(),{method:'PUT',headers:{...hdr(),'Content-Type':'application/json'},body:JSON.stringify(body)});
   if(r.status===409||r.status===422)retry=true;else if(r.status===401||r.status===403||r.status===404)setChip('tok');else if(!r.ok)throw 0;else{rsha=(await r.json()).content.sha;etag=null;setChip('ok')}}
  catch(e){if(e&&e.name==='OperationError')setChip('pw');else{setChip('off');setTimeout(()=>schedulePush(),15000)}}finally{pushing=false}
  if(retry&&n<4)push(n+1);else if(retry)setChip('off')}
 async function startSync(){clearInterval(pollT);if(!S){setChip('none');return}setChip(S.t?'sync':'ro');await pull(true);pollT=setInterval(()=>pull(false),S.t?10000:45000)}
 document.addEventListener('visibilitychange',()=>{if(!document.hidden&&S)pull(false)});
-const setupLink=()=>location.origin+location.pathname+'#sync='+btoa(unescape(encodeURIComponent(JSON.stringify(S))));
+const setupLink=()=>location.origin+location.pathname+'#s='+btoa(unescape(encodeURIComponent([S.o,S.r,S.t||'',S.p].join('\n'))));
+function showLink(){const l=setupLink();$('#sy_link').hidden=false;$('#sy_qr').innerHTML=qrSvg(l,'L');$('#sy_lt').value=l}
 function openSync(){$('#sy_o').value=S?S.o:(location.hostname.endsWith('github.io')?location.hostname.split('.')[0]:'');$('#sy_r').value=S?S.r:(/\.html$/.test(location.pathname.split('/')[1]||'')?'':(location.pathname.split('/')[1]||''));$('#sy_t').value=S?S.t:'';$('#sy_p').value=S?S.p:'';$('#sy_err').textContent='';
- $('#sy_link').hidden=!S;if(S)$('#sy_qr').innerHTML=qrSvg(setupLink());$('#sync').hidden=false}
+ $('#sy_link').hidden=!S;if(S)showLink();$('#sync').hidden=false}
 $('#syo').onclick=openSync;$('#dbs').onclick=openSync;
 $('#sy_c').onclick=()=>{$('#sync').hidden=true;try{localStorage.setItem('avena.syncSkip','1')}catch(e){}};
 $('#sy_x').onclick=()=>{S=null;clearInterval(pollT);try{localStorage.removeItem('avena.sync')}catch(e){}setChip('none');$('#sy_link').hidden=true;toast('Sync disconnected — data stays on this device')};
@@ -403,10 +429,50 @@ $('#sy_go').onclick=async()=>{const o=$('#sy_o').value.trim(),r=$('#sy_r').value
  if(!window.crypto||!crypto.subtle){$('#sy_err').textContent='Sync needs a secure (https) page.';return}
  S={o,r,t,p};etag=null;try{localStorage.setItem('avena.sync',JSON.stringify(S))}catch(e){}$('#sy_err').textContent='Connecting…';await startSync();
  const msg={ok:'',ro:'Connected read-only (no token).',pw:'Wrong passphrase for the existing data.',tok:'GitHub rejected the token or repository. Check the account, repo name and token permissions.',off:'Could not reach GitHub. Check your connection.',sync:''}[curState];
- $('#sy_err').textContent=msg||'';if(curState==='ok'||curState==='sync'||curState==='ro'){$('#sy_link').hidden=false;$('#sy_qr').innerHTML=qrSvg(setupLink())}};
+ $('#sy_err').textContent=msg||'';if(curState==='ok'||curState==='sync'||curState==='ro'){showLink()}};
+$('#sy_sh').onclick=()=>{if(navigator.share)navigator.share({title:'Avena ID setup',url:setupLink()}).catch(()=>{});else{$('#sy_lt').select();toast('Sharing not available here — copy the link instead')}};
 $('#sy_cp').onclick=()=>{const l=setupLink();(navigator.clipboard?navigator.clipboard.writeText(l):Promise.reject()).then(()=>toast('Setup link copied')).catch(()=>{prompt('Copy this link',l)})};
+// ---------- lockdown ----------
+const MASTER='ff5c3eb09883f515d565baa3a6c1c712127d0ad20f0d9e2b9c39d3a7d4eb33ca';
+let locked=false,LK={on:false,t:0},lkT=0,ac2=null,osc=null,sirenT=0,alarmPref=null;
+try{LK=Object.assign({on:false,t:0},JSON.parse(localStorage.getItem('avena.lock')||'{}'))}catch(e){}
+try{alarmPref=JSON.parse(localStorage.getItem('avena.alarm')||'null')}catch(e){}
+const hh=async(t,salt)=>{const k=await crypto.subtle.importKey('raw',new TextEncoder().encode(t),'PBKDF2',false,['deriveBits']),b=await crypto.subtle.deriveBits({name:'PBKDF2',salt:new TextEncoder().encode(salt),iterations:100000,hash:'SHA-256'},k,256);return[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')};
+const saveLK=()=>{try{localStorage.setItem('avena.lock',JSON.stringify(LK))}catch(e){}};
+const savePref=()=>{try{localStorage.setItem('avena.alarm',JSON.stringify(alarmPref))}catch(e){}};
+const sndHint=()=>{$('#lk_snd').hidden=!(locked&&alarmPref.on&&ac2&&ac2.state!=='running')};
+function alarmStop(){clearInterval(sirenT);try{osc&&osc.stop()}catch(e){}osc=null}
+function alarmStart(){alarmStop();if(!locked||!alarmPref.on)return;try{ac2=ac2||new(window.AudioContext||webkitAudioContext)();osc=ac2.createOscillator();const g=ac2.createGain();osc.type='sawtooth';g.gain.value=alarmPref.vol*.25;osc.gain=g;osc.connect(g);g.connect(ac2.destination);osc.start();let hi=false;const sw=()=>{hi=!hi;osc.frequency.setTargetAtTime(hi?980:640,ac2.currentTime,.12)};sw();sirenT=setInterval(sw,600);ac2.resume().then(sndHint).catch(sndHint)}catch(e){}}
+function lkTick(){const d=Math.max(0,Math.floor((Date.now()-LK.t)/1000)),p=n=>String(n).padStart(2,'0');$('#lk_timer').textContent=p(Math.floor(d/3600))+':'+p(Math.floor(d%3600/60))+':'+p(d%60)}
+function showLock(fresh){locked=true;if(!alarmPref)alarmPref={on:LK.alarm!==false,vol:LK.vol==null?.6:LK.vol};
+ ['header','main','#ck','#rec','#sync','#login','#lkd'].forEach(q=>{const e=$(q);if(e){e.inert=true;if(q!=='header'&&q!=='main')e.hidden=true}});try{ckStop();stopCam()}catch(e){}document.body.style.overflow='hidden';
+ $('#lk_by').textContent=LK.by||'Authorized personnel';$('#lk_since').textContent=new Date(LK.t).toLocaleString();$('#lk_vol').value=alarmPref.vol;$('#lk_al').textContent=alarmPref.on?'🔔 Alarm on':'🔕 Alarm off';
+ $('#lk_rel').hidden=true;$('#lk_rb').hidden=false;$('#lk_err').textContent='';const L=$('#lock');L.classList.remove('in');L.hidden=false;if(fresh){void L.offsetWidth;L.classList.add('in')}
+ lkTick();clearInterval(lkT);lkT=setInterval(lkTick,1000);alarmStart()}
+function hideLock(){locked=false;clearInterval(lkT);alarmStop();$('#lock').hidden=true;['header','main','#ck','#rec','#sync','#login','#lkd'].forEach(q=>{const e=$(q);if(e)e.inert=false});document.body.style.overflow='';sndHint();list();toast('Lockdown lifted')}
+function applyLock(l){const was=LK.on;LK=l;saveLK();if(l.on&&!locked)showLock(!was);else if(!l.on&&locked)hideLock()}
+$('#lock').addEventListener('pointerdown',()=>{if(ac2&&ac2.state!=='running')ac2.resume().then(sndHint)},{passive:true});
+$('#lk_al').onclick=()=>{alarmPref.on=!alarmPref.on;savePref();$('#lk_al').textContent=alarmPref.on?'🔔 Alarm on':'🔕 Alarm off';alarmPref.on?alarmStart():alarmStop();sndHint()};
+$('#lk_vol').oninput=e=>{alarmPref.vol=+e.target.value;savePref();if(osc&&osc.gain)osc.gain.gain.value=alarmPref.vol*.25};
+let bad=0,wait=0;
+$('#lk_rb').onclick=()=>{$('#lk_rb').hidden=true;$('#lk_rel').hidden=false;$('#lk_pin').focus()};
+const release=async()=>{if(Date.now()<wait){$('#lk_err').textContent='Too many attempts — wait a few seconds.';return}
+ const ok=LK.rel&&await hh($('#lk_pin').value,LK.salt||'')===LK.rel;
+ if(!ok){bad++;if(bad>=3){wait=Date.now()+10000;bad=0}$('#lk_err').textContent='Incorrect release PIN. Only the person who started the lockdown can end it.';return}
+ $('#lk_pin').value='';bad=0;LK={on:false,t:Date.now()};saveLK();hideLock();if(S)schedulePush()};
+$('#lk_go').onclick=release;$('#lk_pin').onkeydown=e=>{if(e.key==='Enter')release()};
+const openLkd=()=>{$('#lkd_err').textContent='';$('#lkd_code').value='';$('#lkd_pin').value='';$('#lkd').hidden=false;$('#lkd_code').focus()};
+$('#lkopen').onclick=openLkd;$('#lkopen2').onclick=openLkd;$('#lkd_x').onclick=()=>{$('#lkd').hidden=true};
+$('#lkd_go').onclick=async()=>{const e=$('#lkd_err'),name=$('#lkd_name').value.trim(),pin=$('#lkd_pin').value;
+ if(!window.crypto||!crypto.subtle){e.textContent='Lockdown needs a secure (https) page.';return}
+ if(await hh($('#lkd_code').value,'avena-lockdown-v1')!==MASTER){e.textContent='Authorization code not recognised.';return}
+ if(name.length<2){e.textContent='Enter your name.';return}if(pin.length<4){e.textContent='Choose a release PIN of at least 4 characters.';return}
+ const salt=Array.from(crypto.getRandomValues(new Uint8Array(8))).map(x=>x.toString(16)).join('');
+ LK={on:true,by:name,salt,rel:await hh(pin,salt),t:Date.now(),alarm:$('#lkd_al').checked,vol:+$('#lkd_vol').value};alarmPref={on:LK.alarm,vol:LK.vol};savePref();saveLK();$('#lkd').hidden=true;showLock(true);
+ if(S){if(S.t)schedulePush();else toast('This device cannot write to GitHub, so other devices will not be locked')}};
 renderLog();
 fill();render();list();connect();
+if(LK.on)showLock(false);
 if(window.AVENA_FIREBASE&&window.AVENA_FIREBASE.apiKey){S=null}else{startSync();try{if(!S&&!localStorage.getItem('avena.syncSkip'))openSync()}catch(e){}}
 if(location.hash==='#checkpoint')$('#ckopen').click();
 </script></body></html>

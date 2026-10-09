@@ -7,7 +7,8 @@
 window.AVENA_FIREBASE = null;
 // Example: window.AVENA_FIREBASE = {apiKey:"...",authDomain:"...",projectId:"...",storageBucket:"...",messagingSenderId:"...",appId:"..."};
 </script>
-<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAACPklEQVR42u3du3HCYBCFURpw5IDACRWYMhzQGYVQC10tDSB5kGTza++581Wwc+TxA/ChzCZ2cAKDw+AwOAwOg8PgsCY4Pr6+FRIcgkNwCA7BITgEh+AQHIIDDjjgEByCQ3AIDsEhOASH4BAccMABh+AQHIJDcAgOwSE4BIfgcDI44BAcgkNwCA7BITgEh+AQHIIDDjjgEByCQ3AIDsEhOASH4BAccMDxO4776ayQ4BAcgkNwCA7BITgEh+AQHHDAAYfgEByCQ0Ph+LxeFBIcgkNwCA7BITgEh+AQHIIDDjjgEByCQ3BoKBzHn5tCgkNwCA7BITgEh+AQHIJDcMABBxyCQ3AIDg2Fw/8S8F8T4BAcgmP9meCAY+5GcMAxdyA44Ji7DhxwTJ4m5whwvCwj5w5wLJERcgo4FspIuAYcy2W0Pwgcq2T0vgkca2U0PgscG8joehk4tpHR8jjpOGrrwUFGhI9cHPWXg4OM5j4ScdR/DQ4y2vrIwlHvGBxkNPSRgqPePTjIaOWjP44aaXCQ0cRHZxw16uAgY/c+euKoPQwOPnzl4MP3HH5a8dOK33OQ4TekZMDhbytw+KssHF7PAYdXgsHhNaRwePU5HHwkPELe8ZYuw3tlvVcWDu+yh8Pnc8Axoo+om/hMsHQZcGzgI/AaPoc0XQYcq3zE3sFnn6fLgGOhj/ALwDF5HY8HHM8P5NmA4/mNwh8MOCbPlPxUwCE4BIfgEByCQ3AIDsEhOMzgMDgMDoPD4DA4DA7b5x4sZ4FWT/HeNwAAAABJRU5ErkJggg=="><link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAACPklEQVR42u3du3HCYBCFURpw5IDACRWYMhzQGYVQC10tDSB5kGTza++581Wwc+TxA/ChzCZ2cAKDw+AwOAwOg8PgsCY4Pr6+FRIcgkNwCA7BITgEh+AQHIIDDjjgEByCQ3AIDsEhOASH4BAccMABh+AQHIJDcAgOwSE4BIfgcDI44BAcgkNwCA7BITgEh+AQHIIDDjjgEByCQ3AIDsEhOASH4BAccMDxO4776ayQ4BAcgkNwCA7BITgEh+AQHHDAAYfgEByCQ0Ph+LxeFBIcgkNwCA7BITgEh+AQHIIDDjjgEByCQ3BoKBzHn5tCgkNwCA7BITgEh+AQHIJDcMABBxyCQ3AIDg2Fw/8S8F8T4BAcgmP9meCAY+5GcMAxdyA44Ji7DhxwTJ4m5whwvCwj5w5wLJERcgo4FspIuAYcy2W0Pwgcq2T0vgkca2U0PgscG8joehk4tpHR8jjpOGrrwUFGhI9cHPWXg4OM5j4ScdR/DQ4y2vrIwlHvGBxkNPSRgqPePTjIaOWjP44aaXCQ0cRHZxw16uAgY/c+euKoPQwOPnzl4MP3HH5a8dOK33OQ4TekZMDhbytw+KssHF7PAYdXgsHhNaRwePU5HHwkPELe8ZYuw3tlvVcWDu+yh8Pnc8Axoo+om/hMsHQZcGzgI/AaPoc0XQYcq3zE3sFnn6fLgGOhj/ALwDF5HY8HHM8P5NmA4/mNwh8MOCbPlPxUwCE4BIfgEByCQ3AIDsEhOMzgMDgMDoPD4DA4DA7b5x4sZ4FWT/HeNwAAAABJRU5ErkJggg==">
+<link rel="apple-touch-icon" id="ati" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAACPklEQVR42u3du3HCYBCFURpw5IDACRWYMhzQGYVQC10tDSB5kGTza++581Wwc+TxA/ChzCZ2cAKDw+AwOAwOg8PgsCY4Pr6+FRIcgkNwCA7BITgEh+AQHIIDDjjgEByCQ3AIDsEhOASH4BAccMABh+AQHIJDcAgOwSE4BIfgcDI44BAcgkNwCA7BITgEh+AQHIIDDjjgEByCQ3AIDsEhOASH4BAccMDxO4776ayQ4BAcgkNwCA7BITgEh+AQHHDAAYfgEByCQ0Ph+LxeFBIcgkNwCA7BITgEh+AQHIIDDjjgEByCQ3BoKBzHn5tCgkNwCA7BITgEh+AQHIJDcMABBxyCQ3AIDg2Fw/8S8F8T4BAcgmP9meCAY+5GcMAxdyA44Ji7DhxwTJ4m5whwvCwj5w5wLJERcgo4FspIuAYcy2W0Pwgcq2T0vgkca2U0PgscG8joehk4tpHR8jjpOGrrwUFGhI9cHPWXg4OM5j4ScdR/DQ4y2vrIwlHvGBxkNPSRgqPePTjIaOWjP44aaXCQ0cRHZxw16uAgY/c+euKoPQwOPnzl4MP3HH5a8dOK33OQ4TekZMDhbytw+KssHF7PAYdXgsHhNaRwePU5HHwkPELe8ZYuw3tlvVcWDu+yh8Pnc8Axoo+om/hMsHQZcGzgI/AaPoc0XQYcq3zE3sFnn6fLgGOhj/ALwDF5HY8HHM8P5NmA4/mNwh8MOCbPlPxUwCE4BIfgEByCQ3AIDsEhOMzgMDgMDoPD4DA4DA7b5x4sZ4FWT/HeNwAAAABJRU5ErkJggg==">
+<link rel="icon" id="fav"><script>try{document.getElementById('fav').href=document.getElementById('ati').href}catch(e){}</script>
 <meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Avena ID"><meta name="theme-color" content="#0d1b2e">
 <link href="https://fonts.googleapis.com/css2?family=Allura&family=Barlow+Semi+Condensed:wght@400;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
@@ -116,6 +117,38 @@ body.lv1 #save,body.lv1 #print{opacity:.45}
 .lk-b{background:#ffffff12;border:1px solid color-mix(in srgb,var(--lc) 55%,transparent);color:#fff;border-radius:8px;padding:9px 16px;font:600 14px 'Barlow Semi Condensed',sans-serif;letter-spacing:2px;cursor:pointer;text-transform:uppercase}.lk-b:hover{background:color-mix(in srgb,var(--lc) 22%,transparent)}
 #lock input[type=password]{background:#0008;border:1px solid color-mix(in srgb,var(--lc) 55%,transparent);color:#fff;width:200px;text-align:center}#lock input[type=range]{width:120px;accent-color:var(--lc)}
 @media(prefers-reduced-motion:reduce){#lock,#lock *,.card::before{animation:none!important}}
+/* ---------- bulk bar, security answer ---------- */
+#bulk{display:none;gap:8px;align-items:center;flex-wrap:wrap;padding:10px 12px;margin-bottom:10px;border:1px solid var(--ln);border-left:5px solid var(--bl);border-radius:8px;background:var(--in)}#bulk.on{display:flex}
+#bulk select,#bulk input{width:auto;min-width:160px}#bk_f{display:contents}
+.vbox{margin-top:14px;padding:10px 12px;border:1px solid var(--ln);border-left:5px solid var(--bl);border-radius:8px;background:var(--in)}.vbox input{width:auto;min-width:220px}
+.vok{color:var(--gn);font-weight:600}.vno{color:var(--rd);font-weight:600}
+/* ---------- idle screen ---------- */
+#idle{position:fixed;inset:0;z-index:90;background:#050a12;color:#fff;display:grid;place-items:center;overflow:hidden;font-family:'Barlow Semi Condensed',sans-serif;text-align:center;cursor:none;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .8s,visibility 0s .8s}
+#idle.on{opacity:1;visibility:visible;pointer-events:auto;transition:opacity .8s}
+#idle canvas{position:absolute;inset:0;width:100%;height:100%}
+.id-b{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5;animation:idb 24s ease-in-out infinite alternate}
+.id-b.r{width:46vmax;height:46vmax;left:-12vmax;top:-14vmax;background:#c8202f}
+.id-b.g{width:40vmax;height:40vmax;right:-10vmax;top:20vh;background:#138a4b;animation-duration:30s;animation-delay:-8s}
+.id-b.b{width:50vmax;height:50vmax;left:20vw;bottom:-26vmax;background:#1747a6;animation-duration:36s;animation-delay:-16s}
+@keyframes idb{to{transform:translate(8vmax,6vmax) scale(1.2)}}
+#idle.s-network .id-b{opacity:.28}
+#idle.s-aurora canvas{display:none}
+#idle.s-minimal{background:#000}#idle.s-minimal .id-b,#idle.s-minimal canvas,#idle.s-minimal .id-flag,#idle.s-minimal .id-fox{display:none}
+.id-core{position:relative;display:grid;gap:10px;justify-items:center;padding:20px;animation:idfloat 18s ease-in-out infinite alternate}
+@keyframes idfloat{to{transform:translate(2vw,-1.5vh)}}
+#idle.s-minimal .id-core{animation:idroam 120s linear infinite alternate}
+@keyframes idroam{0%{transform:translate(-18vw,-14vh)}100%{transform:translate(18vw,14vh)}}
+.id-flag{width:84px;height:56px;border-radius:3px;box-shadow:0 4px 18px #0008}
+.id-fox{width:92px;height:92px;color:#fff;filter:drop-shadow(0 0 18px #7fb0ff);animation:idp 4s ease-in-out infinite}
+@keyframes idp{50%{transform:scale(1.08);filter:drop-shadow(0 0 30px #9fc4ff)}}
+.id-time{font:600 clamp(72px,16vw,190px)/1 'IBM Plex Mono',monospace;letter-spacing:-.02em;text-shadow:0 0 40px #4a7bd066}
+.id-time small{font-size:.26em;opacity:.55;margin-left:.15em;letter-spacing:0}
+.id-date{font-size:clamp(16px,2.4vw,26px);letter-spacing:.35em;text-transform:uppercase;opacity:.85}
+.id-title{margin-top:10px;font-size:clamp(12px,1.6vw,19px);letter-spacing:.45em;opacity:.7;text-transform:uppercase}
+.id-line{min-height:1.6em;font-size:clamp(15px,2vw,22px);letter-spacing:.18em;color:#9fc4ff;transition:opacity .5s}
+.id-hint{position:absolute;bottom:calc(26px + env(safe-area-inset-bottom,0px));left:0;right:0;font-size:13px;letter-spacing:.4em;text-transform:uppercase;opacity:.6;animation:idh 3s ease-in-out infinite}
+@keyframes idh{50%{opacity:.2}}
+@media(prefers-reduced-motion:reduce){#idle *{animation:none!important}}
 /* ---------- CARD (856x540 design px = 85.6x54mm @10px/mm) ---------- */
 .card{position:relative;width:856px;height:540px;border-radius:32px;overflow:hidden;color:#14202e;font-family:'Barlow Semi Condensed','Arial Narrow',Arial,sans-serif;background:var(--cbg,linear-gradient(135deg,#fbfaf5,#e9efe9 55%,#e1e8f3));text-align:left}
 .card>*{position:absolute}
@@ -184,12 +217,17 @@ body{background:#fff}
 <symbol id="snow" viewBox="0 0 64 64"><g stroke="currentColor" stroke-width="3" stroke-linecap="round" fill="none"><path d="M32 4v56M8 18l48 28M8 46l48-28"/><path d="M26 10l6 6 6-6M26 54l6-6 6 6M10 24l8-1-2-8M54 40l-8 1 2 8M10 40l8 1-2 8M54 24l-8-1 2-8"/></g></symbol></defs></svg>
 <div id="lvlbar" hidden><span id="lb_t"></span><button class="btn" id="lb_d">Details / release</button></div>
 <div id="annpop"></div>
-<header><div class="hw"><svg><use href="#flag"/></svg><div><h1>GOVERNMENT OF AVENA</h1><p>National Identification Office · National ID Card Generator</p></div><span class="sp"></span><span class="tag" id="dbs" style="background:#5b6573">Local only</span><button class="btn" id="lkopen" style="border-color:#c8202f;color:#ff8a8a">🔒 Lockdown</button><button class="btn" id="sgo" hidden>Sign out</button><button class="btn" id="ckopen">⌖ Checkpoint Mode</button><a href="#news" class="btn" style="text-decoration:none">News <span id="ancnt">0</span></a><a href="#scan" class="btn" style="text-decoration:none">Scan</a><a href="#cit" class="btn" style="text-decoration:none">Citizens <span id="cnt">0</span></a><button class="btn" id="theme">◐ Theme</button></div></header>
+<header><div class="hw"><svg><use href="#flag"/></svg><div><h1>GOVERNMENT OF AVENA</h1><p>National Identification Office · National ID Card Generator</p></div><span class="sp"></span><span class="tag" id="dbs" style="background:#5b6573">Local only</span><button class="btn" id="lkopen" style="border-color:#c8202f;color:#ff8a8a">🔒 Lockdown</button><button class="btn" id="sgo" hidden>Sign out</button><button class="btn" id="ckopen">⌖ Checkpoint Mode</button><a href="#news" class="btn" style="text-decoration:none">News <span id="ancnt">0</span></a><a href="#scan" class="btn" style="text-decoration:none">Scan</a><a href="#cit" class="btn" style="text-decoration:none">Citizens <span id="cnt">0</span></a><a href="#set" class="btn" style="text-decoration:none">Settings</a><button class="btn" id="idlenow" title="Show the idle screen">☾ Idle</button><button class="btn" id="theme">◐ Theme</button></div></header>
 <main>
 <div id="top">
 <section class="pnl" id="fm"><h2>Citizen Information</h2><div id="banner"></div>
-<div class="ph"><div id="thumb">No photo</div><div><div class="row"><label class="btn sm" style="cursor:pointer">Upload photo<input type="file" id="photo" accept="image/*" hidden></label><button class="btn sm dg" id="rmph">Remove</button></div><div class="lab" style="margin-top:6px;font-weight:400;letter-spacing:0;text-transform:none">Portrait recommended, cropped to ID-photo ratio automatically.</div></div></div>
+<div class="ph"><div id="thumb">No photo</div><div><div class="row"><label class="btn sm" style="cursor:pointer">Upload photo<input type="file" id="photo" accept="image/*" hidden></label><label class="btn sm" style="cursor:pointer">Take photo<input type="file" id="photo2" accept="image/*" capture="user" hidden></label><button class="btn sm dg" id="rmph">Remove</button></div><div class="lab" style="margin-top:6px;font-weight:400;letter-spacing:0;text-transform:none">Portrait recommended, cropped to ID-photo ratio automatically.</div></div></div>
 <div class="fg" id="form"></div><h2 style="margin:20px 0 12px">Confidential Record &amp; Card Status</h2><div class="fg" id="rform"></div>
+<h2 style="margin:20px 0 12px">Security Verification (optional)</h2><div class="fg" id="sform">
+<div class="w"><div class="lab" style="font-weight:400;letter-spacing:0;text-transform:none">The citizen picks a question and a secret answer. Staff can use it to confirm someone really owns an ID before renewing or replacing a card. It never blocks anything.</div></div>
+<div class="w"><div class="lab"><span>Security question</span></div><select data-k="sq"></select></div>
+<div class="w" id="sqc_w" hidden><div class="lab"><span>Custom question</span></div><input type="text" data-k="sqc" maxlength="120" autocomplete="off"></div>
+<div class="w"><div class="lab"><span>Secret answer</span><label class="sh"><input type="checkbox" id="sa_show"> show</label></div><input type="password" id="sa_in" autocomplete="new-password" maxlength="80"><div class="lab" id="sa_st" style="font-weight:400;letter-spacing:0;text-transform:none;margin-top:4px"></div><div class="row" style="margin-top:6px"><button class="btn sm dg" id="sa_clr" type="button" hidden>Clear answer</button></div></div></div>
 <label class="sh row" style="margin:12px 0"><input type="checkbox" id="auto" checked> Auto-set expiry to 10 years after issue date</label>
 <div class="row"><button class="btn pr" id="save">Save Citizen</button><button class="btn gr" id="gen">Generate ID Code</button><button class="btn" id="new">New Citizen</button><button class="btn dg" id="clr">Clear Form</button></div></section>
 <section class="pv"><div class="pnl"><div class="tb"><div class="seg" id="seg"><button class="btn on" data-v="front">FRONT</button><button class="btn" data-v="back">BACK</button><button class="btn" data-v="both">BOTH</button></div><span class="sp"></span><label class="sh">Zoom <input type="range" id="zm" min=".3" max="1.2" step=".05" style="vertical-align:middle;width:110px"></label><button class="btn sm" id="fit">Fit</button></div>
@@ -208,12 +246,27 @@ body{background:#fff}
 <div id="annlist"></div><p class="lab" style="margin:10px 0 0;font-weight:400;letter-spacing:0;text-transform:none">Publishing or removing a notice needs the authorization code. Active notices also appear on the lockdown screen.</p></section>
 <section class="pnl cl" id="dash"><h2>Overview</h2><div class="stats" id="stats"></div><div id="soon"></div></section>
 <section class="pnl cl" id="scan"><h2>Scan Barcode / QR Code</h2><div class="fg"><div><div class="row"><button class="btn pr" id="cam">Start camera</button><label class="btn" style="cursor:pointer">Scan from image<input type="file" id="img" accept="image/*" hidden></label></div><video id="vid" hidden muted playsinline style="width:100%;max-width:420px;margin-top:10px;border-radius:8px;background:#000"></video></div><div><div class="lab">Or type / use a handheld scanner</div><div class="idr"><input type="text" id="lkv" placeholder="Click here, then scan or type an ID"><button class="btn pr" id="lk">Look up</button></div><div id="sres" class="er"></div></div></div><p class="lab" style="margin:10px 0 0;font-weight:400;letter-spacing:0;text-transform:none">A scan opens the full record of citizens saved in the shared database. Scanning the QR code also checks the card’s security seal and flags forgeries. Codes carry only the ID, never the confidential record.</p></section>
-<section class="pnl cl" id="cit"><h2>Citizens</h2><div class="tb" style="margin-bottom:10px"><input type="text" id="q" placeholder="Search name, ID or position…" style="max-width:320px"><select id="so" style="max-width:220px"><option value="name">Sort: Name A–Z</option><option value="issue">Sort: Newest issued</option><option value="expiry">Sort: Expiry soonest</option><option value="id">Sort: ID code</option></select></div>
-<div class="row" style="margin-bottom:10px"><button class="btn sm" id="bkx">Export backup</button><label class="btn sm" style="cursor:pointer">Import backup<input type="file" id="bki" accept="application/json,.json" hidden></label><span class="lab" style="margin:0;font-weight:400;letter-spacing:0;text-transform:none">Data is stored on this device only — export a backup regularly.</span></div>
+<section class="pnl cl" id="cit"><h2>Citizens</h2><div class="tb" style="margin-bottom:10px"><input type="text" id="q" placeholder="Search name, ID or position…" style="max-width:320px"><select id="so" style="max-width:220px"><option value="name">Sort: Name A–Z</option><option value="issue">Sort: Newest issued</option><option value="expiry">Sort: Expiry soonest</option><option value="id">Sort: ID code</option></select><select id="sf" style="max-width:260px"><option value="">Show: Everyone</option><option value="Active">Active cards</option><option value="Expired">Expired cards</option><option value="Suspended">Suspended cards</option><option value="Revoked">Revoked cards</option><option value="Lost / Replaced">Lost / replaced cards</option><option value="soon">Expiring in 30 days</option><option value="flagged">Record on file (criminal history)</option><option value="nosa">No security answer set</option></select></div>
+<div class="row" style="margin-bottom:10px"><button class="btn sm" id="bkx">Export backup</button><button class="btn sm" id="csvall">Export CSV (shown)</button><label class="btn sm" style="cursor:pointer">Import backup<input type="file" id="bki" accept="application/json,.json" hidden></label><span class="lab" style="margin:0;font-weight:400;letter-spacing:0;text-transform:none">Data is stored on this device only — export a backup regularly.</span></div>
 <div class="row" style="margin-bottom:10px"><button class="btn sm pr" id="syo">GitHub sync settings</button></div>
-<div class="tw"><table><thead><tr><th><input type="checkbox" id="selall" title="Select all"></th><th>Name</th><th>ID Code</th><th>Position</th><th>Citizenship</th><th>Issued</th><th>Status</th><th></th></tr></thead><tbody id="tb"></tbody></table></div></section>
+<div id="bulk"><b id="bk_n">0 selected</b>
+<select id="bk_a"><option value="">Choose a bulk action…</option>
+<optgroup label="Card status"><option value="renew">Renew cards (10 years from today)</option><option value="suspend">Suspend</option><option value="reactivate">Reactivate suspended</option><option value="revoke">Revoke (needs authorization)</option><option value="lost">Mark Lost / Replaced</option></optgroup>
+<optgroup label="Change a field"><option value="prov">Set province / territory</option><option value="role">Set position</option><option value="clr">Set clearance level</option><option value="act">Set activity status</option><option value="cit">Set citizenship status</option><option value="style">Set card style</option><option value="expiry">Set expiry date</option><option value="tag">Append a note</option></optgroup>
+<optgroup label="Other"><option value="csv">Export selected as CSV</option><option value="print">Print selected cards</option><option value="delete">Delete (needs authorization)</option></optgroup></select>
+<span id="bk_f"></span><button class="btn pr" id="bk_go">Apply</button><button class="btn" id="bk_x">Clear selection</button><span class="er" id="bk_e"></span></div>
+<div class="tw"><table><thead><tr><th><input type="checkbox" id="selall" title="Select all shown"></th><th>Name</th><th>ID Code</th><th>Position</th><th>Citizenship</th><th>Issued</th><th>Status</th><th></th></tr></thead><tbody id="tb"></tbody></table></div></section>
 <section class="pnl cl" id="log"><div class="tb" style="margin-bottom:10px"><h2 style="margin:0">Scan Log</h2><span class="sp"></span><button class="btn sm dg" id="clog">Clear log</button></div><div class="tw"><table><thead><tr><th>Time</th><th>ID scanned</th><th>Citizen</th><th>Result</th></tr></thead><tbody id="lg"></tbody></table></div></section>
+<section class="pnl cl" id="set"><h2>Settings</h2><div class="fg">
+<div><div class="lab">Idle screen after</div><select id="st_idle"><option value="0">Never</option><option value="30">30 seconds</option><option value="60">1 minute</option><option value="120">2 minutes</option><option value="300">5 minutes</option><option value="600">10 minutes</option><option value="1800">30 minutes</option></select></div>
+<div><div class="lab">Idle screen style</div><select id="st_sty"><option value="network">Network (animated)</option><option value="aurora">Aurora (soft colour)</option><option value="minimal">Minimal (dark, anti burn-in)</option></select></div>
+<div class="w"><label class="sh row"><input type="checkbox" id="st_open"> Show the idle screen when the app first opens</label></div>
+<div class="w"><label class="sh row"><input type="checkbox" id="st_stats"> Show registry counts and notices on the idle screen</label></div>
+<div class="w row"><button class="btn pr" id="st_pre">Preview idle screen</button><span class="mu">Move the mouse, touch the screen or press any key to leave it. Shortcuts: <b>/</b> jumps to search, <b>Ctrl/⌘ + S</b> saves the citizen. Settings are saved on this device.</span></div></div></section>
 </main>
+<div id="idle" aria-hidden="true"><canvas id="id_cv"></canvas><i class="id-b r"></i><i class="id-b g"></i><i class="id-b b"></i>
+<div class="id-core"><svg class="id-flag"><use href="#flag"/></svg><svg class="id-fox"><use href="#fox"/></svg><div class="id-time" id="id_t"></div><div class="id-date" id="id_d"></div><div class="id-title">Government of Avena · National Identification Office</div><div class="id-line" id="id_l"></div></div>
+<div class="id-hint">Move the mouse, touch the screen or press any key</div></div>
 <div id="sync" hidden><div class="lg" style="max-width:460px"><h2>GITHUB SYNC</h2><div class="lab">Keeps every device on the same citizens</div>
 <div class="row"><button class="btn pr" id="sy_scan">📷 Scan setup code</button><button class="btn" id="sy_paste">Paste setup link</button></div><video id="sy_v" hidden muted playsinline style="width:100%;max-height:260px;object-fit:cover;border-radius:8px;background:#000"></video><input type="text" id="sy_pl" placeholder="Paste setup link here" hidden>
 <div class="lab" style="font-weight:400;letter-spacing:0;text-transform:none">On a new device, scan the setup code shown on a device that is already connected, or fill in the boxes below.</div>
@@ -251,6 +304,7 @@ const today=()=>{const d=new Date();return new Date(d-d.getTimezoneOffset()*6e4)
 const okDate=d=>{const m=/^(\d{4})-(\d\d)-(\d\d)$/.exec(d||'');if(!m)return false;const t=new Date(d+'T00:00:00Z');return !isNaN(t)&&t.toISOString().slice(0,10)===d};
 const addY=(d,n)=>{const[y,m,dd]=d.split('-');return new Date(Date.UTC(+y+n,+m-1,+dd)).toISOString().slice(0,10)};
 const status=c=>c.cs&&c.cs!=='Active'?c.cs:okDate(c.expiry)&&c.expiry<today()?'Expired':'Active';
+try{const th=localStorage.getItem('avena.theme');if(th)document.documentElement.dataset.theme=th}catch(e){}
 // ---------- LIMITED-TIME CARD STYLES ----------
 // The default card is always available. Each entry below is a limited edition that can only be ISSUED between
 // `from` and `to` (YYYY-MM-DD). Cards issued with a style keep it forever. To add your own, copy an entry,
@@ -266,13 +320,18 @@ const thm=c=>THEMES.find(t=>t.id===c.style)||null;
 const avail=t=>(!t.from||today()>=t.from)&&(!t.to||today()<=t.to);
 const themeOpts=sel=>`<option value="default">Default — standard issue</option>`+THEMES.map(t=>{const ok=avail(t)||t.id===sel,note=avail(t)?(t.to?'limited, until '+fmt(t.to):'limited'):today()<t.from?'starts '+fmt(t.from):'ended '+fmt(t.to);return `<option value="${t.id}" ${ok?'':'disabled'}>${esc(t.name)} — ${note}</option>`}).join('');
 function styleHint(){const h=$('#sthint');if(!h)return;const t=thm(cur);h.textContent=!t?'Standard government issue.':avail(t)?'Limited edition'+(t.to?' — can be issued until '+fmt(t.to):'')+'. Cards already issued keep this style.':'This edition is no longer on offer; existing cards keep it.'}
+// ---------- security question (answer is stored only as a one-way hash) ----------
+const SQ=['What was the name of your first pet?','What is your mother’s maiden name?','What was the first street you lived on?','What was the name of your first school?','What is the name of your childhood best friend?','In what city did your parents meet?'];
+const qText=c=>c.sq==='__custom'?(c.sqc||'Custom question'):(c.sq||'Secret word or phrase');
+const nrm=s=>String(s||'').normalize('NFKC').trim().toLowerCase().replace(/\s+/g,' ');
 // field config: key,label,type,side(f/b),options
 const F=[['name','Full Name','text','f'],['pref','Preferred Name','text','f'],['id','Citizen ID / ID Code','id','f'],['dob','Date of Birth','date','f'],['issue','Date of Issue','date','f'],['expiry','Date of Expiry','date','f'],
 ['cit','Citizenship Status','select','f',['Citizen','Naturalized Citizen','Permanent Resident','Diplomatic Status']],['role','Position / Government Role','text','f'],['prov','Province / Territory','text','b'],['res','Place of Residence','text','b'],
 ['blood','Blood Type (optional)','select','b',['','O+','O−','A+','A−','B+','B−','AB+','AB−']],['nat','Nationality','text','b'],['sig','Signature (typed)','text','b'],['notes','Additional Notes','textarea','b']];
 const WIDE=['name','id','res','notes','role'];
-const blank=()=>({uid:'',name:'',pref:'',id:'',dob:'',issue:today(),expiry:addY(today(),10),cit:'Citizen',role:'',prov:'',res:'',blood:'',nat:'Avenan',sig:'',notes:'',style:'default',gender:'',clr:'Level 1',mil:'',awards:'',crimes:'None',act:'Active',cs:'Active',email:'',phone:'',other:'',photo:'',show:Object.fromEntries(F.map(f=>[f[0],f[0]!=='notes']))});
+const blank=()=>({uid:'',name:'',pref:'',id:'',dob:'',issue:today(),expiry:addY(today(),10),cit:'Citizen',role:'',prov:'',res:'',blood:'',nat:'Avenan',sig:'',notes:'',style:'default',gender:'',clr:'Level 1',mil:'',awards:'',crimes:'None',act:'Active',cs:'Active',email:'',phone:'',other:'',photo:'',sq:'',sqc:'',sa:'',ss:'',saAt:'',show:Object.fromEntries(F.map(f=>[f[0],f[0]!=='notes']))});
 let cur=blank(),db=[],view='front',zoom=1,fit=true,pend=null;
+let dirty=false,shown=[];
 try{db=JSON.parse(localStorage.getItem('avena.citizens')||'[]')}catch(e){}
 let baseMap=null;
 const persist=()=>{try{localStorage.setItem('avena.citizens',JSON.stringify(baseMap?db.filter(c=>{const b=baseMap.get(c.uid);return !b||(c.upd||0)>(b.upd||0)}):db))}catch(e){toast('Browser storage unavailable — data will not persist')}};
@@ -285,16 +344,24 @@ $('#form').innerHTML=F.map(([k,l,t,s,o])=>{
 $('#form').insertAdjacentHTML('beforeend',`<div class="w"><div class="lab"><span>Card Style</span></div><select data-k="style"></select><div class="lab" id="sthint" style="font-weight:400;letter-spacing:0;text-transform:none;margin-top:3px"></div></div>`);
 const R=[['gender','Gender','select',['','Male','Female','Other']],['clr','Clearance Level','select',[1,2,3,4,5,6,7,8,9,10].map(n=>'Level '+n)],['mil','Military Branch / Rank','text'],['awards','Awards','text'],['crimes','Criminal History','textarea'],['act','Activity Status','select',['Active','Semi-active','Inactive']],['cs','Card Status','select',['Active','Suspended','Revoked','Lost / Replaced']],['email','Email','text'],['phone','Phone Number','text'],['other','Other Records (one per line, as Label: value)','textarea']];
 $('#rform').innerHTML=R.map(([k,l,t,o])=>`<div class="${t==='textarea'?'w':''}"><div class="lab"><span>${l}</span></div>${t==='select'?`<select data-k="${k}">${o.map(x=>`<option>${x}</option>`).join('')}</select>`:t==='textarea'?`<textarea data-k="${k}" rows="2"></textarea>`:`<input type="text" data-k="${k}">`}</div>`).join('');
-function fill(){cur.style=cur.style||'default';$('[data-k=style]').innerHTML=themeOpts(cur.style);$$('[data-k]').forEach(e=>e.value=cur[e.dataset.k]??'');$$('[data-sh]').forEach(e=>e.checked=!!cur.show[e.dataset.sh]);thumb();styleHint();$('#banner').style.display='none';$$('.er').forEach(e=>e.textContent='')}
+$('[data-k=sq]').innerHTML='<option value="">— No question —</option>'+SQ.map(q=>`<option>${esc(q)}</option>`).join('')+'<option value="__custom">Write my own question…</option>';
+function saUI(){$('#sqc_w').hidden=cur.sq!=='__custom';$('#sa_clr').hidden=!cur.sa;$('#sa_st').textContent=cur.sa?'✔ Answer on file'+(cur.saAt?' (set '+fmt(cur.saAt)+')':'')+'. It is stored as a one-way scrambled code, so staff can check an answer but never read it. Type a new answer above to replace it.':'No answer on file yet. It is only a place for staff to check, and it never blocks anything.'}
+function fill(){cur.style=cur.style||'default';$('[data-k=style]').innerHTML=themeOpts(cur.style);$$('[data-k]').forEach(e=>e.value=cur[e.dataset.k]??'');$$('[data-sh]').forEach(e=>e.checked=!!cur.show[e.dataset.sh]);thumb();styleHint();$('#sa_in').value='';$('#sa_in').type='password';$('#sa_show').checked=false;saUI();$('#banner').style.display='none';$$('.er').forEach(e=>e.textContent='')}
 function thumb(){const t=$('#thumb');t.style.backgroundImage=cur.photo?`url(${cur.photo})`:'';t.textContent=cur.photo?'':'No photo'}
 $('#form').parentElement.addEventListener('input',e=>{const k=e.target.dataset.k,s=e.target.dataset.sh;
- if(k){cur[k]=e.target.value;if(k==='issue'&&$('#auto').checked&&okDate(cur.issue)){cur.expiry=addY(cur.issue,10);$('[data-k=expiry]').value=cur.expiry}if(k==='style')styleHint();dupWarn()}
+ if(k||s||e.target.id==='sa_in')dirty=true;
+ if(k){cur[k]=e.target.value;if(k==='issue'&&$('#auto').checked&&okDate(cur.issue)){cur.expiry=addY(cur.issue,10);$('[data-k=expiry]').value=cur.expiry}if(k==='style')styleHint();if(k==='sq'||k==='sqc')saUI();dupWarn()}
  if(s)cur.show[s]=e.target.checked;render()});
-function dupWarn(){const d=db.find(c=>c.id&&c.id.toLowerCase()===cur.id.trim().toLowerCase()&&c.uid!==cur.uid);$('[data-e=id]').innerHTML=d?`<span class="wn">⚠ This ID is already assigned to ${esc(d.name)}.</span>`:''}
+$('#sa_show').onchange=e=>{$('#sa_in').type=e.target.checked?'text':'password'};
+$('#sa_clr').onclick=()=>{cur.sa='';cur.ss='';cur.saAt='';$('#sa_in').value='';dirty=true;saUI();toast('Answer cleared — press Save Citizen to keep this change')};
+function dupWarn(){const d=db.find(c=>c.id&&c.id.toLowerCase()===cur.id.trim().toLowerCase()&&c.uid!==cur.uid);$('[data-e=id]').innerHTML=d?`<span class="wn">⚠ This ID is already assigned to ${esc(d.name)}.</span>`:'';
+ const n=cur.name.trim().toLowerCase(),tw=n&&cur.dob?db.find(c=>c.uid!==cur.uid&&String(c.name||'').trim().toLowerCase()===n&&c.dob===cur.dob):null,el=$('[data-e=dob]');
+ if(tw)el.innerHTML=`<span class="wn">⚠ ${esc(tw.name)} with the same date of birth is already saved (ID ${esc(tw.id)}). Is this a duplicate?</span>`;else if(el.querySelector('.wn'))el.innerHTML=''}
 const genId=()=>{const used=new Set(db.map(c=>c.id)),span=db.length>7000?90000:9000;let id;do{id=String(1000+crypto.getRandomValues(new Uint32Array(1))[0]%span)}while(used.has(id));return id};
-$('#gen').onclick=()=>{cur.id=genId();$('[data-k=id]').value=cur.id;dupWarn();render();toast('New ID code generated')};
-$('#photo').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=()=>{const W=330,H=424,cv=document.createElement('canvas');cv.width=W;cv.height=H;const x=cv.getContext('2d'),s=Math.max(W/im.width,H/im.height),w=im.width*s,h=im.height*s;x.fillStyle='#dfe5ea';x.fillRect(0,0,W,H);x.drawImage(im,(W-w)/2,(H-h)*.2,w,h);cur.photo=cv.toDataURL('image/jpeg',.78);thumb();render()};im.onerror=()=>toast('Could not read that image');im.src=r.result};r.readAsDataURL(f);e.target.value=''};
-$('#rmph').onclick=()=>{cur.photo='';thumb();render()};
+$('#gen').onclick=()=>{cur.id=genId();$('[data-k=id]').value=cur.id;dirty=true;dupWarn();render();toast('New ID code generated')};
+const onPhoto=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=()=>{const W=330,H=424,cv=document.createElement('canvas');cv.width=W;cv.height=H;const x=cv.getContext('2d'),s=Math.max(W/im.width,H/im.height),w=im.width*s,h=im.height*s;x.fillStyle='#dfe5ea';x.fillRect(0,0,W,H);x.drawImage(im,(W-w)/2,(H-h)*.2,w,h);cur.photo=cv.toDataURL('image/jpeg',.78);dirty=true;thumb();render()};im.onerror=()=>toast('Could not read that image');im.src=r.result};r.readAsDataURL(f);e.target.value=''};
+$('#photo').onchange=onPhoto;$('#photo2').onchange=onPhoto;
+$('#rmph').onclick=()=>{cur.photo='';dirty=true;thumb();render()};
 // ---------- validation / save ----------
 function validate(c){const e={};
  if(!c.name.trim())e.name="Please enter the citizen's full name.";
@@ -303,13 +370,16 @@ function validate(c){const e={};
  if(!okDate(c.issue))e.issue='Enter a valid issue date.';
  if(!okDate(c.expiry))e.expiry='Enter a valid expiry date.';else if(okDate(c.issue)&&c.expiry<c.issue)e.expiry='Expiry cannot be before the issue date.';
  return e}
-$('#save').onclick=()=>{if(frozen())return;const e=validate(cur);$$('.er').forEach(x=>x.textContent=e[x.dataset.e]||'');
+$('#save').onclick=async()=>{if(frozen())return;const e=validate(cur);$$('.er').forEach(x=>x.textContent=e[x.dataset.e]||'');
  const b=$('#banner');if(Object.keys(e).length){b.style.display='block';b.textContent='Please fix the highlighted fields before saving.';return}
  b.style.display='none';cur.id=cur.id.trim();cur.name=cur.name.trim();
+ const ans=$('#sa_in').value;
+ if(ans.trim()){if(!(window.crypto&&crypto.subtle)){toast('The security answer can only be stored on a secure (https) page');return}
+  cur.ss=newUid()+Math.random().toString(36).slice(2,8);cur.sa=await hh(nrm(ans),'avena-sa-v1|'+cur.ss);cur.saAt=today();$('#sa_in').value='';saUI()}
  if(!cur.uid)cur.uid=Date.now().toString(36)+Math.random().toString(36).slice(2,6);
- const i=db.findIndex(c=>c.uid===cur.uid),copy=JSON.parse(JSON.stringify(cur));putC(copy);list();
+ const i=db.findIndex(c=>c.uid===cur.uid),copy=JSON.parse(JSON.stringify(cur));putC(copy);dirty=false;list();
  toast(cur.photo?'Citizen saved':'Citizen saved — no photo attached yet')};
-const reset=c=>{cur=c;fill();render()};
+const reset=c=>{cur=c;dirty=false;fill();render()};
 $('#new').onclick=()=>{reset(blank());toast('New citizen')};
 $('#clr').onclick=()=>{const u=cur.uid;const b=blank();Object.assign(b,{issue:'',expiry:'',nat:'',cit:'Citizen',uid:u});reset(b)};
 // ---------- card rendering ----------
@@ -361,17 +431,20 @@ function layout(){const av=$('#bench').clientWidth-40;if(fit){const wide=matchMe
  [['#ff',0,view==='back'?-180:0],['#fb',both?H+G:0,view==='back'||both?0:180]].forEach(([s,t,r])=>{const e=$(s);e.style.width=W+'px';e.style.height=H+'px';e.style.transform=`translateY(${t}px) rotateY(${r}deg)`;e.firstChild.style.transform=`scale(${zoom})`})}
 $('#seg').onclick=e=>{const v=e.target.dataset.v;if(!v)return;view=v;$$('#seg button').forEach(b=>b.classList.toggle('on',b.dataset.v===v));layout()};
 $('#zm').oninput=e=>{fit=false;zoom=+e.target.value;layout()};$('#fit').onclick=()=>{fit=true;layout()};{let lw=0;new ResizeObserver(()=>{const w=$('#bench').clientWidth;if(w!==lw){lw=w;layout()}}).observe($('#bench'));addEventListener('resize',layout)}
-$('#theme').onclick=()=>{const d=document.documentElement,dark=getComputedStyle(d).getPropertyValue('--bg').trim()==='#0c1118';d.dataset.theme=dark?'light':'dark'};
+$('#theme').onclick=()=>{const d=document.documentElement,dark=getComputedStyle(d).getPropertyValue('--bg').trim()==='#0c1118';d.dataset.theme=dark?'light':'dark';try{localStorage.setItem('avena.theme',d.dataset.theme)}catch(e){}};
 // ---------- citizens table ----------
-function list(){$('#cnt').textContent=db.length;dash();const q=$('#q').value.toLowerCase(),k=$('#so').value;
- const rows=db.filter(c=>[c.name,c.id,c.role,c.cit].join(' ').toLowerCase().includes(q)).sort((a,b)=>k==='issue'?(b.issue||'').localeCompare(a.issue||''):k==='expiry'?(a.expiry||'').localeCompare(b.expiry||''):(a[k]||'').localeCompare(b[k]||''));
- $('#tb').innerHTML=rows.length?rows.map(c=>{const st=status(c);return `<tr><td><input type="checkbox" data-a="sel" data-u="${c.uid}" ${sel.has(c.uid)?'checked':''}></td><td><b>${esc(c.name)}</b></td><td class="mono">${esc(c.id)}</td><td>${esc(c.role)||'—'}</td><td>${esc(c.cit)}</td><td>${fmt(c.issue)}</td><td><span class="tag ${st!=='Active'?'x':''}">${st}</span></td><td><div class="row"><button class="btn sm pr" data-a="view" data-u="${c.uid}">View</button><button class="btn sm" data-a="load" data-u="${c.uid}">Edit</button><button class="btn sm" data-a="dup" data-u="${c.uid}">Duplicate</button><button class="btn sm dg" data-a="del" data-u="${c.uid}">${pend===c.uid?'Confirm delete?':'Delete'}</button></div></td></tr>`}).join(''):`<tr><td colspan="8" style="color:var(--mu)">${db.length?'No citizens match your search.':'No saved citizens yet. Fill in the form and press Save Citizen.'}</td></tr>`}
-$('#q').oninput=list;$('#so').onchange=list;
+function list(){$('#cnt').textContent=db.length;dash();const q=$('#q').value.toLowerCase(),k=$('#so').value,sf=$('#sf').value,td=today();
+ const pass=c=>{if(!sf)return true;const st=status(c);if(sf==='soon')return st==='Active'&&Math.ceil((new Date(c.expiry)-new Date(td))/864e5)<=30;if(sf==='flagged')return !!flagged(c);if(sf==='nosa')return !c.sa;return st===sf};
+ const rows=db.filter(c=>pass(c)&&[c.name,c.id,c.role,c.cit].join(' ').toLowerCase().includes(q)).sort((a,b)=>k==='issue'?(b.issue||'').localeCompare(a.issue||''):k==='expiry'?(a.expiry||'').localeCompare(b.expiry||''):(a[k]||'').localeCompare(b[k]||''));
+ shown=rows;const have=new Set(db.map(c=>c.uid));sel.forEach(u=>{if(!have.has(u))sel.delete(u)});
+ $('#tb').innerHTML=rows.length?rows.map(c=>{const st=status(c);return `<tr><td><input type="checkbox" data-a="sel" data-u="${c.uid}" ${sel.has(c.uid)?'checked':''}></td><td><b>${esc(c.name)}</b>${c.sa?' <span title="Security answer on file">🔐</span>':''}</td><td class="mono">${esc(c.id)}</td><td>${esc(c.role)||'—'}</td><td>${esc(c.cit)}</td><td>${fmt(c.issue)}</td><td><span class="tag ${st!=='Active'?'x':''}">${st}</span></td><td><div class="row"><button class="btn sm pr" data-a="view" data-u="${c.uid}">View</button><button class="btn sm" data-a="load" data-u="${c.uid}">Edit</button><button class="btn sm" data-a="dup" data-u="${c.uid}">Duplicate</button><button class="btn sm dg" data-a="del" data-u="${c.uid}">${pend===c.uid?'Confirm delete?':'Delete'}</button></div></td></tr>`}).join(''):`<tr><td colspan="8" style="color:var(--mu)">${db.length?'No citizens match your search or filter.':'No saved citizens yet. Fill in the form and press Save Citizen.'}</td></tr>`;
+ bulkUI()}
+$('#q').oninput=list;$('#so').onchange=list;$('#sf').onchange=list;
 $('#tb').onclick=e=>{const b=e.target.closest('[data-a]');if(!b)return;const c=db.find(x=>x.uid===b.dataset.u);if(!c)return;
- if(b.dataset.a==='sel'){b.checked?sel.add(c.uid):sel.delete(c.uid);return}
+ if(b.dataset.a==='sel'){b.checked?sel.add(c.uid):sel.delete(c.uid);bulkUI();return}
  if(b.dataset.a==='view')return openRec(c);
  if(b.dataset.a==='load'){if(sealedNow())return;reset({...blank(),...JSON.parse(JSON.stringify(c))});scrollTo({top:0,behavior:'smooth'});toast('Loaded '+c.name)}
- if(b.dataset.a==='dup'){if(sealedNow()||frozen())return;const d=JSON.parse(JSON.stringify(c));d.uid=Date.now().toString(36)+Math.random().toString(36).slice(2,6);d.name+=' (Copy)';d.id=genId();putC(d);list();toast('Duplicated with a new ID code')}
+ if(b.dataset.a==='dup'){if(sealedNow()||frozen())return;const d=JSON.parse(JSON.stringify(c));d.uid=Date.now().toString(36)+Math.random().toString(36).slice(2,6);d.name+=' (Copy)';d.id=genId();d.sa='';d.ss='';d.saAt='';putC(d);list();toast('Duplicated with a new ID code')}
  if(b.dataset.a==='del'){if(frozen())return;if(pend===c.uid){delC(c.uid);pend=null;if(cur.uid===c.uid)cur.uid='';toast('Citizen deleted')}else{pend=c.uid;setTimeout(()=>{pend=null;list()},3500)}list()}};
 // ---------- print ----------
 $('#print').onclick=()=>{if(frozen())return;const per=+$('#ppp').value,sd=$('#psd').value,src=$('#psrc').value,L=src==='all'?db:src==='sel'?db.filter(c=>sel.has(c.uid)):[cur];
@@ -382,19 +455,29 @@ $('#print').onclick=()=>{if(frozen())return;const per=+$('#ppp').value,sd=$('#ps
  $('#sheet').innerHTML=h;
  try{setTimeout(()=>window.print(),150)}catch(e){toast('Printing is blocked here — open the page in its own tab and try again')}};
 // ---------- record page + scanner ----------
-let recC=null;
-function openRec(c,warn){if(sealedNow())return;recC=c;const st=status(c),r=(l,v,x='')=>`<div class="rr ${x}"><i>${l}</i><b>${esc(v)||'—'}</b></div>`;
+let recC=null,vOK='',vbad=0,vwait=0;
+function openRec(c,warn){if(sealedNow())return;recC=c;vOK='';const st=status(c),r=(l,v,x='')=>`<div class="rr ${x}"><i>${l}</i><b>${esc(v)||'—'}</b></div>`;
  const oth=(c.other||'').split('\n').filter(x=>x.trim()).map(x=>{const i=x.indexOf(':');return i>0?r(x.slice(0,i).trim(),x.slice(i+1).trim()):r('Note',x)}).join('');
  const bad=c.crimes&&!/^(none|n\/a)?$/i.test(c.crimes.trim());
+ const sec=`<div class="vbox"><div class="lab"><span>Security verification</span></div>`+(c.sa?`<div style="margin:2px 0 8px"><b>${esc(qText(c))}</b></div><div class="row"><input type="password" id="vq" placeholder="Answer given by the holder" autocomplete="off"><button class="btn sm pr" data-r="vfy">Check answer</button><span id="vres"></span></div><div class="lab" style="margin:6px 0 0;font-weight:400;letter-spacing:0;text-transform:none">Check this before renewing or replacing a card. It is only a reminder and never blocks anything.</div>`:`<span class="mu">No security answer on file. Add one in the editor so staff can confirm the holder before a renewal or replacement.</span>`)+`</div>`;
  $('#recb').innerHTML=(warn?`<div class="fgd">⚠ FORGED CARD — ${esc(warn)}</div>`:'')+`<div class="rh">${c.photo?`<img src="${c.photo}" alt="">`:'<div class="np">No photo</div>'}<div><h2>${esc(c.name)}</h2><div class="mono" style="margin-bottom:6px">ID ${esc(c.id)}</div><span class="tag ${st!=='Active'?'x':''}">${st}</span> <span class="tag" style="background:var(--bl)">${esc(c.clr||'Level —')}</span></div></div>
-<div class="rg">${r('Preferred name',c.pref)}${r('Position',c.role)}${r('Citizenship',c.cit)}${r('Nationality',c.nat)}${r('Date of birth',fmt(c.dob))}${r('Gender',c.gender)}${r('Military branch / rank',c.mil)}${r('Awards',c.awards)}${r('Criminal history',c.crimes,bad?'bad w':'w')}${r('Activity status',c.act)}${r('Blood type',c.blood)}${r('Province / territory',c.prov)}${r('Residence',c.res)}${r('Issued',fmt(c.issue))}${r('Expires',fmt(c.expiry))}${r('Card style',(thm(c)||{}).name||'Default')}${r('Email',c.email)}${r('Phone',c.phone)}${r('Notes',c.notes,'w')}${oth}</div>
+<div class="rg">${r('Preferred name',c.pref)}${r('Position',c.role)}${r('Citizenship',c.cit)}${r('Nationality',c.nat)}${r('Date of birth',fmt(c.dob))}${r('Gender',c.gender)}${r('Military branch / rank',c.mil)}${r('Awards',c.awards)}${r('Criminal history',c.crimes,bad?'bad w':'w')}${r('Activity status',c.act)}${r('Blood type',c.blood)}${r('Province / territory',c.prov)}${r('Residence',c.res)}${r('Issued',fmt(c.issue))}${r('Expires',fmt(c.expiry))}${r('Card style',(thm(c)||{}).name||'Default')}${r('Email',c.email)}${r('Phone',c.phone)}${r('Notes',c.notes,'w')}${oth}</div>${sec}
 <div class="row" style="margin-top:18px"><button class="btn pr" data-r="edit">Open in editor</button><button class="btn gr" data-r="renew">Renew card</button><button class="btn dg" data-r="repl">Replace card (new ID)</button><button class="btn" data-r="close">Close</button></div>`;$('#rec').hidden=false}
+async function verifyAns(){const c=db.find(x=>recC&&x.uid===recC.uid),o=$('#vres'),i=$('#vq');if(!c||!c.sa||!o||!i)return;
+ if(Date.now()<vwait){o.className='vno';o.textContent='Too many wrong answers — wait a moment.';return}
+ if(!i.value.trim()){o.className='mu';o.textContent='Type the holder’s answer first.';return}
+ let ok=false;try{ok=await hh(nrm(i.value),'avena-sa-v1|'+c.ss)===c.sa}catch(e){o.className='vno';o.textContent='Needs a secure (https) page.';return}
+ i.value='';
+ if(ok){vbad=0;vOK=c.uid;o.className='vok';o.textContent='✔ Answer matches'}else{vbad++;if(vbad>=5){vwait=Date.now()+30000;vbad=0}o.className='vno';o.textContent='✖ Does not match'}
+ logScan(c.id,c,ok?'VERIFIED':'WRONG ANSWER')}
 $('#rec').onclick=e=>{const a=e.target.dataset.r;if(e.target.id==='rec'||a==='close')$('#rec').hidden=true;
+ if(a==='vfy'){verifyAns();return}
  if(a==='edit'){$('#rec').hidden=true;reset({...blank(),...JSON.parse(JSON.stringify(recC))});scrollTo({top:0,behavior:'smooth'})}
  const c=db.find(x=>recC&&x.uid===recC.uid);
- if(a==='renew'&&c){if(frozen())return;if(c.cs==='Revoked'){toast('Revoked cards cannot be renewed — change Card Status in the editor first');return}c.issue=today();c.expiry=addY(today(),10);c.cs='Active';putC(c);list();openRec(c);toast('Card renewed until '+fmt(c.expiry))}
- if(a==='repl'&&c){if(frozen())return;const n=JSON.parse(JSON.stringify(c)),old=c.id;n.uid=newUid();n.id=genId();n.issue=today();n.expiry=addY(today(),10);n.cs='Active';n.other=((n.other||'')+'\nReplaced card: '+old).trim();c.cs='Lost / Replaced';putC(c);putC(n);list();openRec(n);toast('New card issued. Old ID '+old+' is now invalid')}
+ if(a==='renew'&&c){if(frozen())return;if(c.cs==='Revoked'){toast('Revoked cards cannot be renewed — change Card Status in the editor first');return}const nv=c.sa&&vOK!==c.uid;c.issue=today();c.expiry=addY(today(),10);c.cs='Active';putC(c);list();openRec(c);toast('Card renewed until '+fmt(c.expiry)+(nv?' · reminder: security answer was not checked':''))}
+ if(a==='repl'&&c){if(frozen())return;const nv=c.sa&&vOK!==c.uid,n=JSON.parse(JSON.stringify(c)),old=c.id;n.uid=newUid();n.id=genId();n.issue=today();n.expiry=addY(today(),10);n.cs='Active';n.other=((n.other||'')+'\nReplaced card: '+old).trim();c.cs='Lost / Replaced';putC(c);putC(n);list();openRec(n);toast('New card issued. Old ID '+old+' is now invalid'+(nv?' · reminder: security answer was not checked':''))}
 };
+$('#rec').addEventListener('keydown',e=>{if(e.target.id==='vq'&&e.key==='Enter')verifyAns()});
 addEventListener('keydown',e=>{if(e.key==='Escape')$('#rec').hidden=true});
 $('#lk').onclick=()=>lookup($('#lkv').value);$('#lkv').onkeydown=e=>{if(e.key==='Enter')lookup(e.target.value)};
 let rd=null;
@@ -411,7 +494,7 @@ const tier=c=>{const n=parseInt((c.clr||'').replace(/\D/g,''))||1;return n>=9?['
 const flagged=c=>c.crimes&&!/^(none|n\/a)?$/i.test(c.crimes.trim());
 function logScan(id,c,v){const x={t:Date.now(),id,name:c?c.name:'',v};scans.push(x);if(scans.length>300)scans.shift();
  if(D)D.collection('scans').doc(x.t.toString(36)+Math.random().toString(36).slice(2,5)).set(x).catch(()=>{});else try{localStorage.setItem('avena.scans',JSON.stringify(scans))}catch(e){}renderLog();dash()}
-function renderLog(){$('#lg').innerHTML=scans.length?scans.slice(-50).reverse().map(x=>`<tr><td>${new Date(x.t).toLocaleString([],{dateStyle:'short',timeStyle:'short'})}</td><td class="mono">${esc(x.id)}</td><td>${esc(x.name)||'—'}</td><td><span class="tag ${x.v==='VALID'?'':'x'}">${esc(x.v)}</span></td></tr>`).join(''):'<tr><td colspan="4" style="color:var(--mu)">No scans yet.</td></tr>'}
+function renderLog(){$('#lg').innerHTML=scans.length?scans.slice(-50).reverse().map(x=>`<tr><td>${new Date(x.t).toLocaleString([],{dateStyle:'short',timeStyle:'short'})}</td><td class="mono">${esc(x.id)}</td><td>${esc(x.name)||'—'}</td><td><span class="tag ${x.v==='VALID'||x.v==='VERIFIED'?'':'x'}">${esc(x.v)}</span></td></tr>`).join(''):'<tr><td colspan="4" style="color:var(--mu)">No scans yet.</td></tr>'}
 $('#clog').onclick=()=>{scans=[];if(D)D.collection('scans').get().then(q=>q.docs.forEach(d=>D.collection('scans').doc(d.id).delete())).catch(()=>{});else try{localStorage.removeItem('avena.scans')}catch(e){}renderLog();dash();toast('Scan log cleared')};
 function dash(){const C={},soon=[];db.forEach(c=>{const st=status(c);C[st]=(C[st]||0)+1;if(st==='Active'){const d=Math.ceil((new Date(c.expiry)-new Date(today()))/864e5);if(d<=30)soon.push([d,c])}});
  const td=x=>new Date(x.t).toDateString()===new Date().toDateString(),sc=scans.filter(td).length,fg=scans.filter(x=>td(x)&&x.v==='FORGED').length,bad=db.length-(C.Active||0)-(C.Expired||0),t=(n,l)=>`<div class="st"><b>${n}</b>${l}</div>`;
@@ -422,7 +505,48 @@ function lookup(raw){if(locked)return;const p=parseScan(raw),id=p.id;if(!id)retu
  $('#lkv').value='';
  if(sealedOn()){$('#sres').textContent=`${r.v} — ${c.name} (full record sealed during Level ${lvl()} lockdown)`;return}
  $('#sres').textContent=r.v==='FORGED'?'⚠ FORGED — '+r.why:'';openRec(c,r.v==='FORGED'?r.why:'')}
-$('#selall').onchange=e=>{e.target.checked?db.forEach(c=>sel.add(c.uid)):sel.clear();list()};
+// ---------- bulk operations ----------
+const BK_CLR=[1,2,3,4,5,6,7,8,9,10].map(n=>'Level '+n),BK_ACT=['Active','Semi-active','Inactive'],BK_CIT=F.find(f=>f[0]==='cit')[4];
+let bkPend='',bkT=0;
+function bkReset(){bkPend='';clearTimeout(bkT);const g=$('#bk_go');if(g)g.textContent='Apply'}
+function bulkUI(){const n=sel.size;$('#bulk').classList.toggle('on',n>0);$('#bk_n').textContent=n+' selected';$('#selall').checked=shown.length>0&&shown.every(c=>sel.has(c.uid));if(!n)bkReset()}
+function bkField(){const a=$('#bk_a').value,o=l=>l.map(x=>`<option>${esc(x)}</option>`).join('');
+ $('#bk_f').innerHTML={prov:'<input type="text" id="bk_v" placeholder="Province / territory">',role:'<input type="text" id="bk_v" placeholder="Position">',tag:'<input type="text" id="bk_v" maxlength="120" placeholder="Note text">',clr:`<select id="bk_v">${o(BK_CLR)}</select>`,act:`<select id="bk_v">${o(BK_ACT)}</select>`,cit:`<select id="bk_v">${o(BK_CIT)}</select>`,style:`<select id="bk_v">${themeOpts('')}</select>`,expiry:'<input type="date" id="bk_v">'}[a]||'';bkReset()}
+$('#bk_a').onchange=bkField;$('#bulk').addEventListener('input',e=>{if(e.target.id==='bk_v')bkReset()});
+$('#bk_x').onclick=()=>{sel.clear();list()};
+$('#selall').onchange=e=>{e.target.checked?shown.forEach(c=>sel.add(c.uid)):shown.forEach(c=>sel.delete(c.uid));list()};
+function csvOut(L){const cols=[['id','ID'],['name','Name'],['pref','Preferred name'],['dob','Date of birth'],['cit','Citizenship'],['role','Position'],['nat','Nationality'],['prov','Province'],['res','Residence'],['issue','Issued'],['expiry','Expires'],['cs','Card status'],['clr','Clearance'],['act','Activity'],['email','Email'],['phone','Phone']];
+ const q=v=>{let s=String(v??'');if(/^[=+\-@\t\r]/.test(s))s="'"+s;return '"'+s.replace(/"/g,'""')+'"'};
+ const rows=[cols.map(c=>q(c[1])).concat(q('Status now')).join(',')].concat(L.map(c=>cols.map(k=>q(c[k[0]])).concat(q(status(c))).join(',')));
+ const b=new Blob(['\ufeff'+rows.join('\r\n')],{type:'text/csv;charset=utf-8'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='avena-citizens-'+today()+'.csv';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),2000);toast('Exported '+L.length+' citizen'+(L.length===1?'':'s')+' (confidential fields left out)')}
+$('#csvall').onclick=()=>{if(sealedNow())return;if(!shown.length){toast('Nothing to export');return}csvOut(shown)};
+$('#bk_go').onclick=async()=>{if(frozen())return;const a=$('#bk_a').value,er=$('#bk_e'),L=db.filter(c=>sel.has(c.uid)),v=$('#bk_v')?$('#bk_v').value.trim():'';er.textContent='';
+ if(!L.length){er.textContent='Nothing is selected.';return}
+ if(!a){er.textContent='Choose an action first.';return}
+ if(['prov','role','tag'].includes(a)&&!v){er.textContent='Enter a value first.';return}
+ if(a==='expiry'&&!okDate(v)){er.textContent='Pick a valid expiry date.';return}
+ if(a==='style'&&v!=='default'){const t=THEMES.find(x=>x.id===v);if(!t||!avail(t)){er.textContent='That card style is not on offer right now.';return}}
+ if(a==='csv'){if(sealedNow())return;csvOut(L);return}
+ if(a==='print'){$('#psrc').value='sel';$('#print').click();return}
+ const key=a+'|'+v+'|'+L.length;
+ if(bkPend!==key){bkPend=key;$('#bk_go').textContent='Confirm for '+L.length+'?';clearTimeout(bkT);bkT=setTimeout(bkReset,4000);return}
+ bkReset();
+ if((a==='delete'||a==='revoke')&&!await askCode(a==='delete'?'Authorization required to delete '+L.length+' citizen'+(L.length===1?'':'s')+'.':'Authorization required to revoke '+L.length+' card'+(L.length===1?'':'s')+'.'))return;
+ const t=today();let ok=0,skip=0;
+ for(const c0 of L){
+  if(a==='delete'){delC(c0.uid);sel.delete(c0.uid);if(cur.uid===c0.uid)cur.uid='';ok++;continue}
+  const c=JSON.parse(JSON.stringify(c0));let go=true;
+  if(a==='renew'){if(c.cs==='Revoked'||c.cs==='Lost / Replaced')go=false;else{c.issue=t;c.expiry=addY(t,10);c.cs='Active'}}
+  else if(a==='suspend'){if(c.cs==='Revoked'||c.cs==='Lost / Replaced')go=false;else c.cs='Suspended'}
+  else if(a==='reactivate'){if(c.cs!=='Suspended')go=false;else c.cs='Active'}
+  else if(a==='revoke')c.cs='Revoked';
+  else if(a==='lost')c.cs='Lost / Replaced';
+  else if(a==='prov'||a==='role'||a==='act'||a==='cit'||a==='clr')c[a]=v;
+  else if(a==='style')c.style=v;
+  else if(a==='expiry'){if(okDate(c.issue)&&v<c.issue)go=false;else c.expiry=v}
+  else if(a==='tag')c.other=((c.other||'')+'\nNote ('+t+'): '+v).trim();
+  if(!go){skip++;continue}putC(c);ok++}
+ list();toast((a==='delete'?ok+' deleted':ok+' updated')+(skip?', '+skip+' skipped (not eligible)':''))};
 // checkpoint mode
 let ac,ckrd=null,lastT='',lastAt=0;
 const beep=(f,d)=>{try{ac=ac||new(window.AudioContext||webkitAudioContext)();const o=ac.createOscillator(),g=ac.createGain();o.frequency.value=f;g.gain.value=.15;o.connect(g);g.connect(ac.destination);o.start();o.stop(ac.currentTime+d)}catch(e){}};
@@ -621,9 +745,53 @@ $('#lkd_go').onclick=async()=>{const e=$('#lkd_err'),name=$('#lkd_name').value.t
  const salt=Array.from(crypto.getRandomValues(new Uint8Array(8))).map(x=>x.toString(16)).join('');
  LK={on:true,lvl:n,by:name,salt,rel:await hh(pin,salt),t:Date.now(),alarm:$('#lkd_al').checked,vol:+$('#lkd_vol').value};alarmPref={on:LK.alarm,vol:LK.vol};savePref();saveLK();$('#lkd').hidden=true;lockUI(true);
  if(S){if(S.t)schedulePush();else toast('This device cannot write to GitHub, so other devices will not be locked')}};
+// ---------- idle screen ----------
+let SET={idle:120,sty:'network',open:true,stats:true};try{Object.assign(SET,JSON.parse(localStorage.getItem('avena.set')||'{}'))}catch(e){}
+const saveSet=()=>{try{localStorage.setItem('avena.set',JSON.stringify(SET))}catch(e){}};
+let lastAct=Date.now(),idleOn=false,idleAt=0,idlePx=null,idleRaf=0,idleLn=0,clockT=0,lineT=0,pts=[],pW=0,pH=0;
+const idleEl=$('#idle'),idCv=$('#id_cv');
+function idleTick(){const d=new Date();$('#id_t').innerHTML=d.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit',hourCycle:'h23'})+'<small>'+String(d.getSeconds()).padStart(2,'0')+'</small>';$('#id_d').textContent=d.toLocaleDateString([],{weekday:'long',year:'numeric',month:'long',day:'numeric'})}
+function idleLines(){const c=db.length,a=db.filter(x=>status(x)==='Active').length,L=['Viva l’Avena'];
+ if(SET.stats){if(c){L.push(c+' citizen'+(c===1?'':'s')+' registered');L.push(a+' active card'+(a===1?'':'s'))}activeAnn().slice(0,3).forEach(x=>L.push((SEV[x.sev]||'NOTICE')+' · '+x.title))}
+ if(lvl())L.unshift('Lockdown Level '+lvl()+' in effect');return L}
+function idleLine(){if(!idleOn)return;const L=idleLines(),el=$('#id_l');el.style.opacity=0;lineT=setTimeout(()=>{el.textContent=L[idleLn++%L.length];el.style.opacity=1;lineT=setTimeout(idleLine,6000)},500)}
+function ptsInit(){const r=devicePixelRatio||1;pW=idCv.width=Math.round(innerWidth*r);pH=idCv.height=Math.round(innerHeight*r);pts=Array.from({length:Math.max(24,Math.min(90,Math.round(innerWidth*innerHeight/16000)))},()=>({x:Math.random()*pW,y:Math.random()*pH,vx:(Math.random()-.5)*.4*r,vy:(Math.random()-.5)*.4*r,k:Math.floor(Math.random()*3)}))}
+function ptsStep(){if(!idleOn||SET.sty!=='network')return;const g=idCv.getContext&&idCv.getContext('2d');if(!g)return;const r=devicePixelRatio||1,md=150*r,COL=['#ff5a6a','#3ddc84','#6aa0ff'];g.clearRect(0,0,pW,pH);
+ for(const p of pts){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>pW)p.vx*=-1;if(p.y<0||p.y>pH)p.vy*=-1}
+ for(let i=0;i<pts.length;i++){const p=pts[i];for(let j=i+1;j<pts.length;j++){const q=pts[j],dx=p.x-q.x,dy=p.y-q.y,d=dx*dx+dy*dy;if(d<md*md){g.globalAlpha=(1-Math.sqrt(d)/md)*.55;g.strokeStyle=COL[p.k];g.lineWidth=r;g.beginPath();g.moveTo(p.x,p.y);g.lineTo(q.x,q.y);g.stroke()}}g.globalAlpha=.95;g.fillStyle=COL[p.k];g.beginPath();g.arc(p.x,p.y,2.2*r,0,6.3);g.fill()}
+ idleRaf=requestAnimationFrame(ptsStep)}
+function showIdle(){if(idleOn)return false;if(!$('#ck').hidden||!$('#lock').hidden||rd||syr){lastAct=Date.now();return false}
+ idleOn=true;idleAt=Date.now();idlePx=null;idleEl.className='on s-'+SET.sty;
+ idleTick();clearInterval(clockT);clockT=setInterval(idleTick,1000);
+ idleLn=1;const L=$('#id_l');L.style.opacity=1;L.textContent=idleLines()[0];clearTimeout(lineT);lineT=setTimeout(idleLine,6000);
+ cancelAnimationFrame(idleRaf);if(SET.sty==='network'&&!matchMedia('(prefers-reduced-motion:reduce)').matches){ptsInit();idleRaf=requestAnimationFrame(ptsStep)}
+ return true}
+function wakeIdle(){if(!idleOn)return;idleOn=false;idleEl.classList.remove('on');clearInterval(clockT);clearTimeout(lineT);cancelAnimationFrame(idleRaf);lastAct=Date.now()}
+['mousemove','mousedown','pointerdown','keydown','wheel','touchstart','scroll'].forEach(n=>addEventListener(n,e=>{
+ if(idleOn){const swallow=n==='keydown'||n==='pointerdown'||n==='mousedown'||n==='touchstart';
+  if(swallow){if(e.cancelable)e.preventDefault();e.stopPropagation()}
+  if(Date.now()-idleAt<700)return;
+  if(n==='mousemove'){if(!idlePx){idlePx=[e.clientX,e.clientY];return}if(Math.hypot(e.clientX-idlePx[0],e.clientY-idlePx[1])<8)return}
+  wakeIdle();return}
+ lastAct=Date.now()},{capture:true,passive:false}));
+setInterval(()=>{if(!idleOn&&SET.idle>0&&Date.now()-lastAct>=SET.idle*1000)showIdle()},1000);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!idleOn)lastAct=Date.now()});
+addEventListener('resize',()=>{if(idleOn&&SET.sty==='network')ptsInit()});
+function idleInit(){$('#st_idle').value=String(SET.idle);$('#st_sty').value=SET.sty;$('#st_open').checked=!!SET.open;$('#st_stats').checked=!!SET.stats}
+$('#st_idle').onchange=e=>{SET.idle=+e.target.value;saveSet();lastAct=Date.now()};
+$('#st_sty').onchange=e=>{SET.sty=e.target.value;saveSet()};
+$('#st_open').onchange=e=>{SET.open=e.target.checked;saveSet()};
+$('#st_stats').onchange=e=>{SET.stats=e.target.checked;saveSet()};
+$('#st_pre').onclick=()=>{lastAct=Date.now();showIdle()};$('#idlenow').onclick=()=>{lastAct=Date.now();showIdle()};
+// ---------- shortcuts + unsaved-changes warning ----------
+addEventListener('keydown',e=>{const t=e.target,typing=/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName)||t.isContentEditable;
+ if((e.ctrlKey||e.metaKey)&&String(e.key).toLowerCase()==='s'){e.preventDefault();$('#save').click();return}
+ if(e.key==='/'&&!typing&&!e.ctrlKey&&!e.metaKey&&!e.altKey&&$('#rec').hidden&&$('#ck').hidden){e.preventDefault();$('#cit').scrollIntoView({behavior:'smooth'});$('#q').focus()}});
+addEventListener('beforeunload',e=>{if(dirty){e.preventDefault();e.returnValue=''}});
 renderLog();
 fill();render();list();connect();renderAnn();
 lockUI(false);
 if(window.AVENA_FIREBASE&&window.AVENA_FIREBASE.apiKey){S=null}else{startSync();try{if(!S&&!localStorage.getItem('avena.syncSkip'))openSync()}catch(e){}}
 if(location.hash==='#checkpoint')$('#ckopen').click();
+idleInit();if(SET.open)showIdle();
 </script></body></html>

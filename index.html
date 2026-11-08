@@ -656,7 +656,7 @@ $('#sy_paste').onclick=()=>{const i=$('#sy_pl');i.hidden=false;i.focus()};
 $('#sy_pl').oninput=async e=>{if(await applySetup(e.target.value)){e.target.value='';e.target.hidden=true}};
 $('#sy_cp').onclick=()=>{const l=setupLink();(navigator.clipboard?navigator.clipboard.writeText(l):Promise.reject()).then(()=>toast('Setup link copied')).catch(()=>{prompt('Copy this link',l)})};
 // ---------- authorization prompt (same code as lockdown) ----------
-const MASTER='ff5c3eb09883f515d565baa3a6c1c712127d0ad20f0d9e2b9c39d3a7d4eb33ca';
+const MASTER='a76db6c9f43277d1a54f998e8108050c774fe65dad28cbae3ea0fb05e8971a2c';
 const hh=async(t,salt)=>{const k=await crypto.subtle.importKey('raw',new TextEncoder().encode(t),'PBKDF2',false,['deriveBits']),b=await crypto.subtle.deriveBits({name:'PBKDF2',salt:new TextEncoder().encode(salt),iterations:100000,hash:'SHA-256'},k,256);return[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')};
 function askCode(m){return new Promise(res=>{const d=$('#authd'),i=$('#au_c'),e=$('#au_e');$('#au_m').textContent=m;i.value='';e.textContent='';d.hidden=false;i.focus();
  const done=v=>{d.hidden=true;$('#au_go').onclick=$('#au_x').onclick=i.onkeydown=null;res(v)};

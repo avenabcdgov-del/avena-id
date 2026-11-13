@@ -794,4 +794,7 @@ lockUI(false);
 if(window.AVENA_FIREBASE&&window.AVENA_FIREBASE.apiKey){S=null}else{startSync();try{if(!S&&!localStorage.getItem('avena.syncSkip'))openSync()}catch(e){}}
 if(location.hash==='#checkpoint')$('#ckopen').click();
 idleInit();if(SET.open)showIdle();
-</script></body></html>
+</script>
+<!-- Seasonal site themes add-on: must load AFTER the main script above. Keep themes.js in the same folder as this file. -->
+<script src="themes.js"></script>
+</body></html>
